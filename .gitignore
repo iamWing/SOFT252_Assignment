@@ -1,5 +1,5 @@
 # IDE
-nbproject/
+nbproject/private
 build/
 nbbuild/
 dist/
