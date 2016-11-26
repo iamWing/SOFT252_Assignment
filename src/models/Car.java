@@ -17,16 +17,21 @@ public class Car {
     private String brand;
     private String model;
     private int seats;
+    private String description;
 
-    private ArrayList<AllocationRecord> allocationHistory;
+    private ArrayList<AllocationRecord> allocationHistory, damageHistory;
 
     private boolean allocated = false;
+    private boolean damaged = false;
+    private boolean enabled = true;
 
-    public Car(int _carId, String _brand, String _model, int _seats) {
+    public Car(int _carId, String _brand, String _model, int _seats, 
+            String _desc) {
         carId = _carId;
         brand = _brand;
         model = _model;
         seats = _seats;
+        description = _desc;
     }
 
     // --- Getters & Setters --- //
@@ -62,6 +67,14 @@ public class Car {
         this.seats = seats;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public boolean getAllocated() {
         return allocated;
     }
@@ -70,7 +83,24 @@ public class Car {
         allocated = _status;
     }
 
+    public boolean isDamaged() {
+        return damaged;
+    }
+
+    public void setDamaged(boolean damaged) {
+        this.damaged = damaged;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     // --- Allocation history management --- //
+    
     public void addAllocationRecord(AllocationRecord _record) {
         allocationHistory.add(_record);
     }
