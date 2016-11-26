@@ -4,20 +4,20 @@
  * and open the template in the editor.
  */
 package models;
+
 /**
  *
  * @author Fairymental
  */
 public class Staff {
-    
-    
+
     private String forName;
     private String lastName;
     private int staffID;
     private String address;
     private int licenseNumber;
     private char licenseType;
-    
+
     private Car assignedCar;
 
     public Car getAssignedCar() {
@@ -27,29 +27,25 @@ public class Staff {
     public void setAssignedCar(Car assignedCar) {
         this.assignedCar = assignedCar;
     }
-    
 
-    
-    public void Staff()
-    { 
-        this.forName ="";
-        this.lastName="";
-        this.staffID =0;
-        this.address ="";
-        this.licenseNumber =0;
-        this.licenseType =' ';
+    public void Staff() {
+        this.forName = "";
+        this.lastName = "";
+        this.staffID = 0;
+        this.address = "";
+        this.licenseNumber = 0;
+        this.licenseType = ' ';
     }
-    public void Staff(String forName,String lastName,int staffID, String address,int licenseNumber, char licenseType)
-    {
+
+    public void Staff(String forName, String lastName, int staffID, String address, int licenseNumber, char licenseType) {
         this.forName = forName;
         this.lastName = lastName;
         this.staffID = staffID;
         this.address = address;
         this.licenseNumber = licenseNumber;
-        this.licenseType =licenseType;
+        this.licenseType = licenseType;
     }
-    
-    
+
     public String getForName() {
         return forName;
     }
@@ -97,7 +93,5 @@ public class Staff {
     public void setLicenseType(char licenseType) {
         this.licenseType = licenseType;
     }
-    
-    
-    
+
 }
