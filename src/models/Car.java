@@ -22,26 +22,27 @@ public class Car {
     private ArrayList<AllocationRecord> allocationHistory;
     private ArrayList<DamageRecord> damageHistory;
 
+    private Insurance insurance;
+
     private boolean allocated = false;
     private boolean damaged = false;
     private boolean enabled = true;
 
-    public Car(int _carId, String _brand, String _model, int _seats, 
-            String _desc) {
+    public Car(int _carId) {
+        carId = _carId;
+    }
+
+    public Car(int _carId, String _brand, String _model, int _seats) {
         carId = _carId;
         brand = _brand;
         model = _model;
         seats = _seats;
-        description = _desc;
     }
 
     // --- Getters & Setters --- //
+
     public int getCarId() {
         return carId;
-    }
-
-    public void setCarId(int carId) {
-        this.carId = carId;
     }
 
     public String getBrand() {
@@ -76,12 +77,20 @@ public class Car {
         this.description = description;
     }
 
-    public boolean getAllocated() {
+    public Insurance getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+
+    public boolean isAllocated() {
         return allocated;
     }
 
-    public void setAllocated(boolean _status) {
-        allocated = _status;
+    public void setAllocated(boolean allocated) {
+        this.allocated = allocated;
     }
 
     public boolean isDamaged() {
