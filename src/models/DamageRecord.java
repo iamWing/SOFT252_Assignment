@@ -47,5 +47,4 @@ public class DamageRecord {
         this.description = description;
     }
 
-    
 }

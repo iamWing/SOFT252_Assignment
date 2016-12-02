@@ -19,7 +19,8 @@ public class Car {
     private int seats;
     private String description;
 
-    private ArrayList<AllocationRecord> allocationHistory, damageHistory;
+    private ArrayList<AllocationRecord> allocationHistory;
+    private ArrayList<DamageRecord> damageHistory;
 
     private boolean allocated = false;
     private boolean damaged = false;
@@ -101,11 +102,23 @@ public class Car {
 
     // --- Allocation history management --- //
     
-    public void addAllocationRecord(AllocationRecord _record) {
+    public void addAllocationRecord(AllocationRecord _record) throws 
+            NullPointerException {
         allocationHistory.add(_record);
     }
 
-    public void removeLastAllocationRecord() {
+    public void removeLastAllocationRecord() throws NullPointerException {
         allocationHistory.remove(allocationHistory.size() - 1);
+    }
+
+    // --- Damage history management --- //
+
+    public void addDamageRecord(DamageRecord _record) throws 
+            NullPointerException {
+        damageHistory.add(_record);
+    }
+
+    public void removeLastDamageRecord() throws NullPointerException {
+        damageHistory.remove(damageHistory.size() - 1);
     }
 }
