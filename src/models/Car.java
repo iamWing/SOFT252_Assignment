@@ -31,7 +31,6 @@ public class Car {
     }
 
     // --- Getters & Setters --- //
-
     public char getCarId() {
         return carId;
     }
@@ -101,8 +100,7 @@ public class Car {
     }
 
     // --- Allocation history management --- //
-    
-    public void addAllocationRecord(AllocationRecord _record) { 
+    public void addAllocationRecord(AllocationRecord _record) {
         if (allocationHistory == null) {
             allocationHistory = new ArrayList<>();
         }
@@ -113,12 +111,12 @@ public class Car {
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
-    public ArrayList<AllocationRecord> getAllocationRecords() {
+    public ArrayList<AllocationRecord> getAllocationRecords() throws
+            NullPointerException {
         return allocationHistory;
     }
 
     // --- Damage history management --- //
-
     public void addDamageRecord(DamageRecord _record) {
         if (damageHistory == null) {
             damageHistory = new ArrayList<>();
@@ -130,7 +128,8 @@ public class Car {
         damageHistory.remove(damageHistory.size() - 1);
     }
 
-    public ArrayList<DamageRecord> getDamageRecords() {
+    public ArrayList<DamageRecord> getDamageRecords() throws
+            NullPointerException {
         return damageHistory;
     }
 }
