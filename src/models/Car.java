@@ -113,6 +113,10 @@ public class Car {
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
+    public ArrayList<AllocationRecord> getAllocationRecords() {
+        return allocationHistory;
+    }
+
     // --- Damage history management --- //
 
     public void addDamageRecord(DamageRecord _record) {
@@ -124,5 +128,9 @@ public class Car {
 
     public void removeLastDamageRecord() throws NullPointerException {
         damageHistory.remove(damageHistory.size() - 1);
+    }
+
+    public ArrayList<DamageRecord> getDamageRecords() {
+        return damageHistory;
     }
 }
