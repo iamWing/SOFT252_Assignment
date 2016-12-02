@@ -102,8 +102,10 @@ public class Car {
 
     // --- Allocation history management --- //
     
-    public void addAllocationRecord(AllocationRecord _record) throws 
-            NullPointerException {
+    public void addAllocationRecord(AllocationRecord _record) { 
+        if (allocationHistory == null) {
+            allocationHistory = new ArrayList<>();
+        }
         allocationHistory.add(_record);
     }
 
@@ -113,8 +115,10 @@ public class Car {
 
     // --- Damage history management --- //
 
-    public void addDamageRecord(DamageRecord _record) throws 
-            NullPointerException {
+    public void addDamageRecord(DamageRecord _record) {
+        if (damageHistory == null) {
+            damageHistory = new ArrayList<>();
+        }
         damageHistory.add(_record);
     }
 
