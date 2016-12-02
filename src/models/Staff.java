@@ -1,88 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
-/**
- *
- * @author Fairymental
- */
+import java.util.ArrayList;
+
 public class Staff {
 
-    private String forName;
-    private String lastName;
-    private int staffID;
-    private String address;
-    private int licenseNumber;
-    private char licenseType;
+    private final int STAFFID;
+    private char licenseNumber, licenseType;
+    private String foreName, lastName, address;
 
     private Car assignedCar;
 
-    public Car getAssignedCar() {
-        return assignedCar;
+    private ArrayList<AllocationRecord> allocationHistory;
+
+    public Staff(char _STAFFID) {
+        STAFFID = _STAFFID;
     }
 
-    public void setAssignedCar(Car assignedCar) {
-        this.assignedCar = assignedCar;
+    public Staff(int _STAFFID, String _fName, String _lName, String _address,
+            char _licenseNumber, char _licenseType) {
+        STAFFID = _STAFFID;
+        foreName = _fName;
+        lastName = _lName;
+        address = _address;
+        licenseNumber = _licenseNumber;
+        licenseType = _licenseType;
     }
 
-    public void Staff() {
-        this.forName = "";
-        this.lastName = "";
-        this.staffID = 0;
-        this.address = "";
-        this.licenseNumber = 0;
-        this.licenseType = ' ';
+    // --- Getters & Setters --- //
+    public int getSTAFFID() {
+        return STAFFID;
     }
 
-    public void Staff(String forName, String lastName, int staffID, String address, int licenseNumber, char licenseType) {
-        this.forName = forName;
-        this.lastName = lastName;
-        this.staffID = staffID;
-        this.address = address;
-        this.licenseNumber = licenseNumber;
-        this.licenseType = licenseType;
-    }
-
-    public String getForName() {
-        return forName;
-    }
-
-    public void setForName(String forNmae) {
-        this.forName = forNmae;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getStaffID() {
-        return staffID;
-    }
-
-    public void setStaffID(int staffID) {
-        this.staffID = staffID;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getLicenseNumber() {
+    public char getLicenseNumber() {
         return licenseNumber;
     }
 
-    public void setLicenseNumber(int licenseNumber) {
+    public void setLicenseNumber(char licenseNumber) {
         this.licenseNumber = licenseNumber;
     }
 
@@ -94,4 +47,52 @@ public class Staff {
         this.licenseType = licenseType;
     }
 
+    public String getForeName() {
+        return foreName;
+    }
+
+    public void setForeName(String foreName) {
+        this.foreName = foreName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Car getAssignedCar() {
+        return assignedCar;
+    }
+
+    public void setAssignedCar(Car assignedCar) {
+        this.assignedCar = assignedCar;
+    }
+
+    // --- Allocation history management --- //
+    public void addAllocationRecord(AllocationRecord _record) {
+        if (allocationHistory == null) {
+            allocationHistory = new ArrayList<>();
+        }
+        allocationHistory.add(_record);
+    }
+
+    public void removeLastAllocationRecord() throws NullPointerException {
+        allocationHistory.remove(allocationHistory.size() - 1);
+    }
+
+    public ArrayList<AllocationRecord> getAllocationRecords() throws
+            NullPointerException {
+        return allocationHistory;
+    }
 }
