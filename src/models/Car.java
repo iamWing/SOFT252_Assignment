@@ -1,19 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Wing
- */
 public class Car {
 
-    private int carId;
+    private char carId;
     private String brand;
     private String model;
     private int seats;
@@ -28,11 +19,11 @@ public class Car {
     private boolean damaged = false;
     private boolean enabled = true;
 
-    public Car(int _carId) {
+    public Car(char _carId) {
         carId = _carId;
     }
 
-    public Car(int _carId, String _brand, String _model, int _seats) {
+    public Car(char _carId, String _brand, String _model, int _seats) {
         carId = _carId;
         brand = _brand;
         model = _model;
@@ -41,7 +32,7 @@ public class Car {
 
     // --- Getters & Setters --- //
 
-    public int getCarId() {
+    public char getCarId() {
         return carId;
     }
 
