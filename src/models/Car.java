@@ -10,10 +10,11 @@ public class Car {
     private int seats;
     private String description;
 
+    private CarParks location;
+    private Insurance insurance;
+
     private ArrayList<AllocationRecord> allocationHistory;
     private ArrayList<DamageRecord> damageHistory;
-
-    private Insurance insurance;
 
     private boolean allocated = false;
     private boolean damaged = false;
@@ -23,15 +24,17 @@ public class Car {
         CARID = _CARID;
     }
 
-    public Car(char _CARID, String _brand, String _model, int _seats) {
+    public Car(char _CARID, String _brand, String _model, int _seats, 
+            CarParks _loc) {
         CARID = _CARID;
         brand = _brand;
         model = _model;
         seats = _seats;
+        location = _loc;
     }
 
     // --- Getters & Setters --- //
-    public char getCARID() {
+    public char getCARID() {    
         return CARID;
     }
 
@@ -65,6 +68,14 @@ public class Car {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public CarParks getLocation() {
+        return location;
+    }
+
+    public void setLocation(CarParks location) {
+        this.location = location;
     }
 
     public Insurance getInsurance() {
