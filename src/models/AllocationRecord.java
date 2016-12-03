@@ -45,6 +45,10 @@ public class AllocationRecord {
         return staff;
     }
 
+    public boolean getLongTermAllocation() {
+        return longTermAllocation;
+    }
+
     public Date getStarDate() {
         return startDate;
     }
