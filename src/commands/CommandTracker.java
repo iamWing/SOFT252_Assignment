@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package commandClasses;
+package commands;
 
-import command.ICommand;
-import command.ICommandTracker;
+import commands.interfaces.ICommand;
+import commands.interfaces.ICommandTracker;
 import java.util.Stack;
 
 /**

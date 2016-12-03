@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package commandClasses;
+package commands;
 
-import command.ICommand;
-import command.ICommandBehavior;
+import commands.interfaces.ICommand;
+import commands.interfaces.ICommandBehavior;
 
 
 /**

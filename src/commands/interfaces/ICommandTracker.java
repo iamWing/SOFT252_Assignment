@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package command;
+package commands.interfaces;
 
 /**
  * An Interface expressing the concept of a command tracker which 'tracks' 
