@@ -19,6 +19,12 @@ public class AllocationRecord {
     private boolean longTermAllocation;
     private Date startDate, endDate;
 
+    /**
+     * 
+     * @param _car
+     * @param _staff
+     * @param _startDate
+     */
     public AllocationRecord(Car _car, Staff _staff, Date _startDate) {
         car = _car;
         staff = _staff;
@@ -27,6 +33,13 @@ public class AllocationRecord {
         longTermAllocation = true;
     }
 
+    /**
+     *
+     * @param _car
+     * @param _staff
+     * @param _startDate
+     * @param _endDate
+     */
     public AllocationRecord(Car _car, Staff _staff, Date _startDate, 
             Date _endDate) {
         car = _car;
@@ -37,22 +50,43 @@ public class AllocationRecord {
         longTermAllocation = false;
     }
 
+    /**
+     *
+     * @return
+     */
     public Car getCar() {
         return car;
     }
 
+    /**
+     *
+     * @return
+     */
     public Staff getStaff() {
         return staff;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getLongTermAllocation() {
         return longTermAllocation;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getStarDate() {
         return startDate;
     }
 
+    /**
+     *
+     * @return
+     * @throws NullPointerException
+     */
     public Date getEndDate() throws NullPointerException {
         return endDate;
     }

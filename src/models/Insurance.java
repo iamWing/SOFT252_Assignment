@@ -19,6 +19,14 @@ public class Insurance {
 
     private Car car;
 
+    /**
+     *
+     * @param _company
+     * @param _insuranceNumber
+     * @param _startDate
+     * @param _endDate
+     * @param _car
+     */
     public Insurance(String _company, char _insuranceNumber, Date _startDate, 
             Date _endDate, Car _car) {
         company = _company;
@@ -28,38 +36,74 @@ public class Insurance {
         car = _car;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCompany() {
         return company;
     }
 
+    /**
+     *
+     * @param company
+     */
     public void setCompany(String company) {
         this.company = company;
     }
 
+    /**
+     *
+     * @return
+     */
     public char getInsuranceNumber() {
         return insuranceNumber;
     }
 
+    /**
+     *
+     * @param insuranceNumber
+     */
     public void setInsuranceNumber(char insuranceNumber) {
         this.insuranceNumber = insuranceNumber;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getStartDate() {
         return startDate;
     }
 
+    /**
+     *
+     * @param startDate
+     */
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getEndDate() {
         return endDate;
     }
 
+    /**
+     *
+     * @param endDate
+     */
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Car getCar() {
         return car;
     }
