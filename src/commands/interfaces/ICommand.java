@@ -25,5 +25,5 @@ public interface ICommand extends ICommandBehavior {
      * was undone after execution, False otherwise.
      */
     Boolean isUndone();
-    
+
 }

@@ -14,36 +14,36 @@ import commands.interfaces.ICommandBehavior;
  * @author rtucker
  */
 public class Command implements ICommand {
-    
+
     private ICommandBehavior delegate;
     private Boolean blnExecuted = false;
-    
+
     /**
      * Constructor to 'Decorate' i.e. wrap an ICommandBehaviour object
-     * @param objACommand - A Command Behaviour to wrap
+     * @param _decoratedCommand - A Command Behaviour to wrap
      */
-    public Command(ICommandBehavior objACommand)
+    public Command(ICommandBehavior _decoratedCommand)
     {
-        this.delegate = objACommand;
+        delegate = _decoratedCommand;
     }
 
     @Override
     public Boolean isExecuted() {
-        return this.blnExecuted;
+        return blnExecuted;
     }
 
     @Override
     public Boolean isUndone() {
-        return !this.blnExecuted;
+        return !blnExecuted;
     }
 
     @Override
-    public Boolean doCommand() {
+    public Boolean executeCommand() {
         Boolean done = false;
         //Call the delegates do method
-        done = this.delegate.doCommand();
+        done = delegate.executeCommand();
         //Set the done / undone flag based on the result
-        this.blnExecuted = done;
+        blnExecuted = done;
         return done;
     }
 
@@ -51,10 +51,10 @@ public class Command implements ICommand {
     public Boolean undoCommand() {
         Boolean undone = false;
         //Call the delegates undo method
-        undone = this.delegate.undoCommand();
+        undone = delegate.undoCommand();
         //Set the done / undone flag based on the result
-        this.blnExecuted = !undone;
+        blnExecuted = !undone;
         return undone;
     }
-    
+
 }

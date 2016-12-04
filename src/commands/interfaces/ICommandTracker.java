@@ -14,11 +14,11 @@ public interface ICommandTracker {
     /**
      * Executes the provided command and if it completes adds it to the collection
      * of executed commands being tracked
-     * @param objACommand - Interface to the command object to execute
+     * @param _command - Interface to the command object to execute
      * @return Boolean True if command completed and was added to the 
      * collection of executed commands, False otherwise.
      */
-    Boolean executeCommand(ICommand objACommand);
+    Boolean executeCommand(ICommand _command);
     /**
      * This method reverses the last command added to the collection of executed commands.
      * Repeated calls to this method will provide an in order reversal of executed commands.

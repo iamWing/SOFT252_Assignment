@@ -14,7 +14,7 @@ public interface ICommandBehavior {
      * Executes this command behaviour
      * @return Boolean True if the command completed successfully, False otherwise
      */
-    Boolean doCommand();
+    Boolean executeCommand();
     
     /**
      * Reverses the command behaviour cancelling its effects
