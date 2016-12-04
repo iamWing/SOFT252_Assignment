@@ -16,8 +16,8 @@ import java.util.Stack;
 public class CommandTracker implements ICommandTracker {
 
     //Declare the 'Done' and 'Un-Done' stacks of ICommand objects
-    private Stack<ICommand> undoStack = new Stack<>();
-    private Stack<ICommand> redoStack = new Stack<>();
+    private static Stack<ICommand> undoStack = new Stack<>();
+    private static Stack<ICommand> redoStack = new Stack<>();
 
     @Override
     public Boolean executeCommand(ICommand _command) {
