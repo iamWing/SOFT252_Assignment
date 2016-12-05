@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Car {
 
-    private final char CARID;
+    private final String CARID;
     private String brand;
     private String model;
     private int seats;
@@ -28,7 +28,7 @@ public class Car {
      *
      * @param _CARID
      */
-    public Car(char _CARID) {
+    public Car(String _CARID) {
         CARID = _CARID;
     }
 
@@ -40,7 +40,7 @@ public class Car {
      * @param _seats
      * @param _loc
      */
-    public Car(char _CARID, String _brand, String _model, int _seats, 
+    public Car(String _CARID, String _brand, String _model, int _seats, 
             CarParks _loc) {
         CARID = _CARID;
         brand = _brand;
@@ -55,7 +55,7 @@ public class Car {
      *
      * @return
      */
-    public char getCARID() {    
+    public String getCARID() {    
         return CARID;
     }
 
