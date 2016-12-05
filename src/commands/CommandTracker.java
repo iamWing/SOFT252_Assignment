@@ -16,8 +16,8 @@ import java.util.Stack;
 public class CommandTracker implements ICommandTracker {
 
     //Declare the 'Done' and 'Un-Done' stacks of ICommand objects
-    private Stack<ICommand> undoStack = new Stack<>();
-    private Stack<ICommand> redoStack = new Stack<>();
+    private static Stack<ICommand> undoStack = new Stack<>();
+    private static Stack<ICommand> redoStack = new Stack<>();
 
     @Override
     public Boolean executeCommand(ICommand _command) {
@@ -52,7 +52,7 @@ public class CommandTracker implements ICommandTracker {
         Boolean blnDone = false;
 
         //Get last 'undone' command
-        ICommand lastCommand = this.redoStack.pop();
+        ICommand lastCommand = redoStack.pop();
         //Redo the last command
         if (lastCommand.executeCommand()) {
             //Push command to the 'undo' stack

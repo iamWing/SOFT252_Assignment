@@ -14,7 +14,7 @@ import java.util.Date;
 public class Insurance {
 
     private String company;
-    private char insuranceNumber;
+    private int insuranceNumber;
     private Date startDate, endDate;
 
     private Car car;
@@ -56,7 +56,7 @@ public class Insurance {
      *
      * @return
      */
-    public char getInsuranceNumber() {
+    public int getInsuranceNumber() {
         return insuranceNumber;
     }
 
