@@ -5,6 +5,7 @@
  */
 package models;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ public class Insurance {
 
     private String company;
     private String insuranceNumber;
-    private Date startDate, endDate;
+    private Calendar startDate, endDate;
 
     private Car car;
 
@@ -27,8 +28,8 @@ public class Insurance {
      * @param _endDate
      * @param _car
      */
-    public Insurance(String _company, String _insuranceNumber, Date _startDate, 
-            Date _endDate, Car _car) {
+    public Insurance(String _company, String _insuranceNumber, Calendar _startDate, 
+            Calendar _endDate, Car _car) {
         company = _company;
         insuranceNumber = _insuranceNumber;
         startDate = _startDate;
@@ -72,7 +73,7 @@ public class Insurance {
      *
      * @return
      */
-    public Date getStartDate() {
+    public Calendar getStartDate() {
         return startDate;
     }
 
@@ -80,7 +81,7 @@ public class Insurance {
      *
      * @param startDate
      */
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Calendar startDate) {
         this.startDate = startDate;
     }
 
@@ -88,7 +89,7 @@ public class Insurance {
      *
      * @return
      */
-    public Date getEndDate() {
+    public Calendar getEndDate() {
         return endDate;
     }
 
@@ -96,7 +97,7 @@ public class Insurance {
      *
      * @param endDate
      */
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Calendar endDate) {
         this.endDate = endDate;
     }
 

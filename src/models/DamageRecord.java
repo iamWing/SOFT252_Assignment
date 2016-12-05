@@ -5,7 +5,8 @@
  */
 package models;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 
 /**
  *
@@ -13,7 +14,8 @@ import java.util.Date;
  */
 public class DamageRecord {
     
-    private Date damageDate;
+    private LocalDateTime createDate;
+    private Calendar damageDate;
     private Staff damagedBy;
     private String description;
 
@@ -23,7 +25,8 @@ public class DamageRecord {
      * @param _damagedBy
      * @param _desc
      */
-    public DamageRecord(Date _damageDate, Staff _damagedBy, String _desc) {
+    public DamageRecord(Calendar _damageDate, Staff _damagedBy, String _desc) {
+        createDate = LocalDateTime.now();
         damageDate  = _damageDate;
         damagedBy = _damagedBy;
         description = _desc;
@@ -33,7 +36,7 @@ public class DamageRecord {
      *
      * @return
      */
-    public Date getDamageDate() {
+    public Calendar getDamageDate() {
         return damageDate;
     }
 
@@ -41,7 +44,7 @@ public class DamageRecord {
      *
      * @param damageDate
      */
-    public void setDamageDate(Date damageDate) {
+    public void setDamageDate(Calendar damageDate) {
         this.damageDate = damageDate;
     }
 
