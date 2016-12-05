@@ -5,6 +5,7 @@
  */
 package models;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Date;
 public class Insurance {
 
     private String company;
-    private int insuranceNumber;
+    private String insuranceNumber;
     private Date startDate, endDate;
 
     private Car car;
@@ -27,7 +28,8 @@ public class Insurance {
      * @param _endDate
      * @param _car
      */
-    public Insurance(String _company, int _insuranceNumber, Date _startDate, 
+
+    public Insurance(String _company, String _insuranceNumber, Date _startDate, 
             Date _endDate, Car _car) {
         company = _company;
         insuranceNumber = _insuranceNumber;
@@ -56,7 +58,7 @@ public class Insurance {
      *
      * @return
      */
-    public int getInsuranceNumber() {
+    public String getInsuranceNumber() {
         return insuranceNumber;
     }
 
@@ -64,7 +66,7 @@ public class Insurance {
      *
      * @param insuranceNumber
      */
-    public void setInsuranceNumber(char insuranceNumber) {
+    public void setInsuranceNumber(String insuranceNumber) {
         this.insuranceNumber = insuranceNumber;
     }
 

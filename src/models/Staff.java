@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Staff {
 
-    private final int STAFFID;
+    private final String STAFFID;
     private char licenseNumber, licenseType;
     private String foreName, lastName, address;
 
@@ -20,7 +20,7 @@ public class Staff {
      *
      * @param _STAFFID
      */
-    public Staff(char _STAFFID) {
+    public Staff(String _STAFFID) {
         STAFFID = _STAFFID;
     }
 
@@ -33,7 +33,7 @@ public class Staff {
      * @param _licenseNumber
      * @param _licenseType
      */
-    public Staff(int _STAFFID, String _fName, String _lName, String _address,
+    public Staff(String _STAFFID, String _fName, String _lName, String _address,
             char _licenseNumber, char _licenseType) {
         STAFFID = _STAFFID;
         foreName = _fName;
@@ -49,7 +49,7 @@ public class Staff {
      *
      * @return
      */
-    public int getSTAFFID() {
+    public String getSTAFFID() {
         return STAFFID;
     }
 

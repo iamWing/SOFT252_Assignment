@@ -42,6 +42,7 @@ public class Car {
      */
     public Car(String _CARID, String _brand, String _model, int _seats, 
             CarParks _loc, String _description) {
+
         CARID = _CARID;
         brand = _brand;
         model = _model;
