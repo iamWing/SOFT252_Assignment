@@ -6,7 +6,6 @@
 package models;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
@@ -14,11 +13,11 @@ import java.util.Date;
  */
 public class AllocationRecord {
 
-    private Car car;
-    private Staff staff;
+    private final Car car;
+    private final Staff staff;
     
-    private boolean longTermAllocation;
-    private Calendar startDate, endDate;
+    private final boolean longTermAllocation;
+    private final Calendar startDate, endDate;
 
     /**
      * 
@@ -30,6 +29,7 @@ public class AllocationRecord {
         car = _car;
         staff = _staff;
         startDate = _startDate;
+        endDate = null;
 
         longTermAllocation = true;
     }
