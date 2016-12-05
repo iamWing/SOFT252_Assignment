@@ -52,7 +52,7 @@ public class CommandTracker implements ICommandTracker {
         Boolean blnDone = false;
 
         //Get last 'undone' command
-        ICommand lastCommand = this.redoStack.pop();
+        ICommand lastCommand = redoStack.pop();
         //Redo the last command
         if (lastCommand.executeCommand()) {
             //Push command to the 'undo' stack
