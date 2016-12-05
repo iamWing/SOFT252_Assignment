@@ -27,7 +27,7 @@ public class Insurance {
      * @param _endDate
      * @param _car
      */
-    public Insurance(String _company, char _insuranceNumber, Date _startDate, 
+    public Insurance(String _company, int _insuranceNumber, Date _startDate, 
             Date _endDate, Car _car) {
         company = _company;
         insuranceNumber = _insuranceNumber;
