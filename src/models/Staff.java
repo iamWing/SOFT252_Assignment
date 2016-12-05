@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public class Staff {
 
     private final String STAFFID;
-    private char licenseNumber, licenseType;
-    private String foreName, lastName, address;
+    private String foreName, lastName, address,licenseNumber, licenseType;
 
     private Car assignedCar;
 
@@ -34,7 +33,7 @@ public class Staff {
      * @param _licenseType
      */
     public Staff(String _STAFFID, String _fName, String _lName, String _address,
-            char _licenseNumber, char _licenseType) {
+            String _licenseNumber, String _licenseType) {
         STAFFID = _STAFFID;
         foreName = _fName;
         lastName = _lName;
@@ -57,7 +56,7 @@ public class Staff {
      *
      * @return
      */
-    public char getLicenseNumber() {
+    public String getLicenseNumber() {
         return licenseNumber;
     }
 
@@ -65,7 +64,7 @@ public class Staff {
      *
      * @param licenseNumber
      */
-    public void setLicenseNumber(char licenseNumber) {
+    public void setLicenseNumber(String licenseNumber) {
         this.licenseNumber = licenseNumber;
     }
 
@@ -73,7 +72,7 @@ public class Staff {
      *
      * @return
      */
-    public char getLicenseType() {
+    public String getLicenseType() {
         return licenseType;
     }
 
@@ -81,7 +80,7 @@ public class Staff {
      *
      * @param licenseType
      */
-    public void setLicenseType(char licenseType) {
+    public void setLicenseType(String licenseType) {
         this.licenseType = licenseType;
     }
 
