@@ -15,22 +15,22 @@ public interface ICommandTracker {
      * Executes the provided command and if it completes adds it to the collection
      * of executed commands being tracked
      * @param _command - Interface to the command object to execute
-     * @return Boolean True if command completed and was added to the 
+     * @return boolean True if command completed and was added to the 
      * collection of executed commands, False otherwise.
      */
-    Boolean executeCommand(ICommand _command);
+    boolean executeCommand(ICommand _command);
     /**
      * This method reverses the last command added to the collection of executed commands.
      * Repeated calls to this method will provide an in order reversal of executed commands.
      * Undone commands will be added to their own collection
-     * @return Boolean True if a command was reversed, False otherwise.
+     * @return boolean True if a command was reversed, False otherwise.
      */
-    Boolean undoLastCommand();
+    boolean undoLastCommand();
     /**
      * This method executes the last command added to the collection of undone commands.
-     * @return Boolean True if a previously undone command was re-executed, False otherwise
+     * @return boolean True if a previously undone command was re-executed, False otherwise
      */
-    Boolean redoLastCommand();
+    boolean redoLastCommand();
 
     
     

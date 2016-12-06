@@ -20,8 +20,8 @@ public class CommandTracker implements ICommandTracker {
     private static Stack<ICommand> redoStack = new Stack<>();
 
     @Override
-    public Boolean executeCommand(ICommand _command) {
-        Boolean blnExecuted = false;
+    public boolean executeCommand(ICommand _command) {
+        boolean blnExecuted = false;
         
         if (null != _command) {
             if (_command.executeCommand()) {
@@ -33,8 +33,8 @@ public class CommandTracker implements ICommandTracker {
     }
 
     @Override
-    public Boolean undoLastCommand() {
-        Boolean blnUndone = false;
+    public boolean undoLastCommand() {
+        boolean blnUndone = false;
 
         //Get the last command
         ICommand lastCommand = undoStack.pop();
@@ -48,8 +48,8 @@ public class CommandTracker implements ICommandTracker {
     }
 
     @Override
-    public Boolean redoLastCommand() {
-        Boolean blnDone = false;
+    public boolean redoLastCommand() {
+        boolean blnDone = false;
 
         //Get last 'undone' command
         ICommand lastCommand = redoStack.pop();

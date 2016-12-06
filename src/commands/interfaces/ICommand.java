@@ -14,16 +14,16 @@ public interface ICommand extends ICommandBehavior {
     
     /**
      * Accessor to test if this command has been executed
-     * @return Boolean True if this command has been executed and not undone,
+     * @return boolean True if this command has been executed and not undone,
      * False otherwise
      */
-    Boolean isExecuted();
+    boolean isExecuted();
 
     /**
      * Accessor to test if this command has been undone
-     * @return Boolean True if this command has NOT been executed or if it
+     * @return boolean True if this command has NOT been executed or if it
      * was undone after execution, False otherwise.
      */
-    Boolean isUndone();
+    boolean isUndone();
 
 }

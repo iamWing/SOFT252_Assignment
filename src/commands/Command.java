@@ -16,7 +16,7 @@ import commands.interfaces.ICommandBehavior;
 public class Command implements ICommand {
 
     private ICommandBehavior delegate;
-    private Boolean blnExecuted = false;
+    private boolean blnExecuted = false;
 
     /**
      * Constructor to 'Decorate' i.e. wrap an ICommandBehaviour object
@@ -28,18 +28,18 @@ public class Command implements ICommand {
     }
 
     @Override
-    public Boolean isExecuted() {
+    public boolean isExecuted() {
         return blnExecuted;
     }
 
     @Override
-    public Boolean isUndone() {
+    public boolean isUndone() {
         return !blnExecuted;
     }
 
     @Override
-    public Boolean executeCommand() {
-        Boolean done = false;
+    public boolean executeCommand() {
+        boolean done = false;
         //Call the delegates do method
         done = delegate.executeCommand();
         //Set the done / undone flag based on the result
@@ -48,8 +48,8 @@ public class Command implements ICommand {
     }
 
     @Override
-    public Boolean undoCommand() {
-        Boolean undone = false;
+    public boolean undoCommand() {
+        boolean undone = false;
         //Call the delegates undo method
         undone = delegate.undoCommand();
         //Set the done / undone flag based on the result
