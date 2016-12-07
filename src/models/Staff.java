@@ -1,12 +1,13 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Wing
  */
-public class Staff {
+public class Staff implements Serializable {
 
     private final String STAFFID;
     private String foreName, lastName, address,licenseNumber, licenseType;

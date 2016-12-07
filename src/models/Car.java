@@ -1,12 +1,13 @@
 package models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Wing
  */
-public class Car {
+public class Car implements Serializable {
 
     private final String CARID;
     private String brand;

@@ -5,13 +5,14 @@
  */
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Wing
  */
-public class Insurance {
+public class Insurance implements Serializable {
 
     private String company;
     private String insuranceNumber;
