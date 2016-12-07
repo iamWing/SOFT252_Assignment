@@ -14,11 +14,11 @@ public interface ICommandBehavior {
      * Executes this command behaviour
      * @return boolean True if the command completed successfully, False otherwise
      */
-    boolean executeCommand();
+    boolean executeCommand() throws Exception;
     
     /**
      * Reverses the command behaviour cancelling its effects
      * @return boolean True if the commend was undone, False otherwise
      */
-    boolean undoCommand();
+    boolean undoCommand() throws Exception;
 }
