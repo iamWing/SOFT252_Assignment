@@ -22,7 +22,7 @@ public class Car {
 
     private boolean allocated = false;
     private boolean damaged = false;
-    private boolean enabled = true;
+    private boolean enabled = false;
 
     /**
      *
