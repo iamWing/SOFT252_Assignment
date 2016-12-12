@@ -88,6 +88,14 @@ public class Car implements Serializable {
 
     /**
      *
+     * @return
+     */
+    public String toString() {
+        return this.getCARID() + " - " + this.getBrand() + " " + this.getModel();
+    }
+ 
+    /**
+     *
      * @param model
      */
     public void setModel(String model) {

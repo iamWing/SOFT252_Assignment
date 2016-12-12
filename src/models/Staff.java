@@ -173,6 +173,14 @@ public class Staff implements Serializable {
     /**
      *
      * @return
+     */
+    public String toString() {
+        return this.getSTAFFID() + ": " + this.getForeName() + " " + this.getLastName();
+    }
+ 
+    /**
+     *
+     * @return
      * @throws NullPointerException
      */
     public ArrayList<AllocationRecord> getAllocationRecords() throws
