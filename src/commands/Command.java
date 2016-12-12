@@ -38,7 +38,7 @@ public class Command implements ICommand {
     }
 
     @Override
-    public boolean executeCommand() {
+    public boolean executeCommand() throws Exception {
         boolean done = false;
         //Call the delegates do method
         done = delegate.executeCommand();
@@ -48,7 +48,7 @@ public class Command implements ICommand {
     }
 
     @Override
-    public boolean undoCommand() {
+    public boolean undoCommand() throws Exception {
         boolean undone = false;
         //Call the delegates undo method
         undone = delegate.undoCommand();

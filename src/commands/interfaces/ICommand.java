@@ -17,13 +17,13 @@ public interface ICommand extends ICommandBehavior {
      * @return boolean True if this command has been executed and not undone,
      * False otherwise
      */
-    boolean isExecuted();
+    boolean isExecuted() throws Exception;
 
     /**
      * Accessor to test if this command has been undone
      * @return boolean True if this command has NOT been executed or if it
      * was undone after execution, False otherwise.
      */
-    boolean isUndone();
+    boolean isUndone() throws Exception;
 
 }

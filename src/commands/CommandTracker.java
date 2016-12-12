@@ -20,7 +20,7 @@ public class CommandTracker implements ICommandTracker {
     private static Stack<ICommand> redoStack = new Stack<>();
 
     @Override
-    public boolean executeCommand(ICommand _command) {
+    public boolean executeCommand(ICommand _command) throws Exception {
         boolean blnExecuted = false;
         
         if (null != _command) {
@@ -33,7 +33,7 @@ public class CommandTracker implements ICommandTracker {
     }
 
     @Override
-    public boolean undoLastCommand() {
+    public boolean undoLastCommand() throws Exception {
         boolean blnUndone = false;
 
         //Get the last command
@@ -48,7 +48,7 @@ public class CommandTracker implements ICommandTracker {
     }
 
     @Override
-    public boolean redoLastCommand() {
+    public boolean redoLastCommand() throws Exception {
         boolean blnDone = false;
 
         //Get last 'undone' command
