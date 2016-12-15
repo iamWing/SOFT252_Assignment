@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
 import java.util.Calendar;
 
 /**
- *
+ * A class to hold records of Cars being allocated to Staff.
+ * 
  * @author Wing
  */
 public class AllocationRecord {
@@ -20,10 +16,11 @@ public class AllocationRecord {
     private final Calendar startDate, endDate;
 
     /**
+     * Constructor, creates an Allocation Record and attaches it to the relevant objects.
      * 
-     * @param _car
-     * @param _staff
-     * @param _startDate
+     * @param _car Car.
+     * @param _staff Employee vehicle is allocated to.
+     * @param _startDate Start of allocation.
      */
     public AllocationRecord(Car _car, Staff _staff, Calendar _startDate) {
         car = _car;
@@ -32,14 +29,17 @@ public class AllocationRecord {
         endDate = null;
 
         longTermAllocation = true;
+        _car.addAllocationRecord(this);
+        _staff.addAllocationRecord(this);
     }
 
     /**
+     * Constructor, creates an Allocation Record and attaches it to the relevant objects.
      *
-     * @param _car
-     * @param _staff
-     * @param _startDate
-     * @param _endDate
+     * @param _car Car.
+     * @param _staff Employee vehicle is allocated to.
+     * @param _startDate Start of allocation.
+     * @param _endDate End of allocation.
      */
     public AllocationRecord(Car _car, Staff _staff, Calendar _startDate, 
             Calendar _endDate) {
@@ -49,44 +49,50 @@ public class AllocationRecord {
         endDate = _endDate;
 
         longTermAllocation = false;
+        _car.addAllocationRecord(this);
+        _staff.addAllocationRecord(this);
     }
 
     /**
-     *
-     * @return
+     * Returns the Car this record relates to.
+     * 
+     * @return Car
      */
     public Car getCar() {
         return car;
     }
 
     /**
-     *
-     * @return
+     * Returns the Staff member this record relates to.
+     * 
+     * @return Staff
      */
     public Staff getStaff() {
         return staff;
     }
 
     /**
-     *
-     * @return
+     * Is this a long term allocation?
+     * 
+     * @return boolean
      */
     public boolean getLongTermAllocation() {
         return longTermAllocation;
     }
 
     /**
+     * Return the start date of the allocation.
      *
-     * @return
+     * @return Calendar
      */
     public Calendar getStarDate() {
         return startDate;
     }
 
     /**
+     * Return the end date of the allocation.
      *
-     * @return
-     * @throws NullPointerException
+     * @return Calendar
      */
     public Calendar getEndDate() throws NullPointerException {
         return endDate;

@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * Class to hold insurance details.
  *
  * @author Wing
  */
@@ -22,11 +18,11 @@ public class Insurance implements Serializable {
 
     /**
      *
-     * @param _company
-     * @param _insuranceNumber
-     * @param _startDate
-     * @param _endDate
-     * @param _car
+     * @param _company String Name of insurance company.
+     * @param _insuranceNumber String ID Of Insurance policy.
+     * @param _startDate Date Start date of policy.
+     * @param _endDate Date End date of policy.
+     * @param _car Car Vehicle the policy applies to.
      */
 
     public Insurance(String _company, String _insuranceNumber, Date _startDate, 
@@ -39,72 +35,81 @@ public class Insurance implements Serializable {
     }
 
     /**
+     * Get Insurance company.
      *
-     * @return
+     * @return String
      */
     public String getCompany() {
         return company;
     }
 
     /**
+     * Set Insurance Company
      *
-     * @param company
+     * @param company String
      */
     public void setCompany(String company) {
         this.company = company;
     }
 
     /**
+     * Get Insurance Policy Number.
      *
-     * @return
+     * @return String
      */
     public String getInsuranceNumber() {
         return insuranceNumber;
     }
 
     /**
+     * Set Insurance policy number.
      *
-     * @param insuranceNumber
+     * @param insuranceNumber String
      */
     public void setInsuranceNumber(String insuranceNumber) {
         this.insuranceNumber = insuranceNumber;
     }
 
     /**
+     * Get start date of policy.
      *
-     * @return
+     * @return Date
      */
     public Date getStartDate() {
         return startDate;
     }
 
     /**
+     * Set start date of policy.
      *
-     * @param startDate
+     * @param startDate Date
      */
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
     /**
+     * Get end date of policy.
      *
-     * @return
+     * @return Date
      */
     public Date getEndDate() {
         return endDate;
     }
 
     /**
+     * Set end date of policy.
      *
-     * @param endDate
+     * @param endDate Date
      */
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
     /**
+     * Get Car that policy applies to.
      *
-     * @return
+     * @return Car
      */
     public Car getCar() {
         return car;

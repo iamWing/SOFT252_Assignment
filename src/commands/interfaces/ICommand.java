@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.interfaces;
 
 /**
@@ -16,6 +12,8 @@ public interface ICommand extends ICommandBehavior {
      * Accessor to test if this command has been executed
      * @return boolean True if this command has been executed and not undone,
      * False otherwise
+     * 
+     * @throws Exception Something went wrong.
      */
     boolean isExecuted() throws Exception;
 
@@ -23,6 +21,8 @@ public interface ICommand extends ICommandBehavior {
      * Accessor to test if this command has been undone
      * @return boolean True if this command has NOT been executed or if it
      * was undone after execution, False otherwise.
+     * 
+     * @throws Exception Something went wrong.
      */
     boolean isUndone() throws Exception;
 

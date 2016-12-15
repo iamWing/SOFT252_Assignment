@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
+ * A class to represent an employee.
  *
  * @author Wing
  */
@@ -17,21 +18,23 @@ public class Staff implements Serializable {
     private ArrayList<AllocationRecord> allocationHistory;
 
     /**
+     * Constructor, Create new employee.
      *
-     * @param _STAFFID
+     * @param _STAFFID String
      */
     public Staff(String _STAFFID) {
         STAFFID = _STAFFID;
     }
 
     /**
+     * Constructor, Create new employee.
      *
-     * @param _STAFFID
-     * @param _fName
-     * @param _lName
-     * @param _address
-     * @param _licenseNumber
-     * @param _licenseType
+     * @param _STAFFID String
+     * @param _fName String First name.
+     * @param _lName String Last name.
+     * @param _address String Address.
+     * @param _licenseNumber String Driving license number.
+     * @param _licenseType String Driving license type.
      */
     public Staff(String _STAFFID, String _fName, String _lName, String _address,
             String _licenseNumber, String _licenseType) {
@@ -46,104 +49,117 @@ public class Staff implements Serializable {
     // --- Getters & Setters --- //
 
     /**
+     * Get Employee ID.
      *
-     * @return
+     * @return String
      */
     public String getSTAFFID() {
         return STAFFID;
     }
 
     /**
+     * Get driving license number.
      *
-     * @return
+     * @return String
      */
     public String getLicenseNumber() {
         return licenseNumber;
     }
 
     /**
+     * set driving license number.
      *
-     * @param licenseNumber
+     * @param licenseNumber String
      */
     public void setLicenseNumber(String licenseNumber) {
         this.licenseNumber = licenseNumber;
     }
 
     /**
+     * Set driving license type.
      *
-     * @return
+     * @return String
      */
     public String getLicenseType() {
         return licenseType;
     }
 
     /**
+     * Get driving license type.
      *
-     * @param licenseType
+     * @param licenseType String
      */
     public void setLicenseType(String licenseType) {
         this.licenseType = licenseType;
     }
 
     /**
+     * Get first name.
      *
-     * @return
+     * @return String
      */
     public String getForeName() {
         return foreName;
     }
 
     /**
+     * Set first name.
      *
-     * @param foreName
+     * @param foreName String
      */
     public void setForeName(String foreName) {
         this.foreName = foreName;
     }
 
     /**
+     * Get last name.
      *
-     * @return
+     * @return String
      */
     public String getLastName() {
         return lastName;
     }
 
     /**
+     * Set last name.
      *
-     * @param lastName
+     * @param lastName String
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
+     * Get address.
      *
-     * @return
+     * @return String
      */
     public String getAddress() {
         return address;
     }
 
     /**
+     * Set address.
      *
-     * @param address
+     * @param address String
      */
     public void setAddress(String address) {
         this.address = address;
     }
 
     /**
+     * Get current car.
      *
-     * @return
+     * @return Car
      */
     public Car getAssignedCar() {
         return assignedCar;
     }
 
     /**
+     * Set current car.
      *
-     * @param assignedCar
+     * @param assignedCar Car
      */
     public void setAssignedCar(Car assignedCar) {
         this.assignedCar = assignedCar;
@@ -152,8 +168,9 @@ public class Staff implements Serializable {
     // --- Allocation history management --- //
 
     /**
+     * For use by AllocationRecord object. Do not use.
      *
-     * @param _record
+     * @param _record AllocationRecord
      */
     public void addAllocationRecord(AllocationRecord _record) {
         if (allocationHistory == null) {
@@ -163,25 +180,27 @@ public class Staff implements Serializable {
     }
 
     /**
+     * For use by AllocationRecord object. Do not use.
      *
-     * @throws NullPointerException
      */
     public void removeLastAllocationRecord() throws NullPointerException {
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
     /**
+     * Convert to String.
+     * String format is StaffID: Forename Surname
      *
-     * @return
+     * @return String
      */
     public String toString() {
         return this.getSTAFFID() + ": " + this.getForeName() + " " + this.getLastName();
     }
  
     /**
+     * Get allocation history.
      *
-     * @return
-     * @throws NullPointerException
+     * @return ArrayList&lt;AllocationRecord&gt;
      */
     public ArrayList<AllocationRecord> getAllocationRecords() throws
             NullPointerException {
