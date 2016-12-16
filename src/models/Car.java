@@ -256,6 +256,7 @@ public class Car implements Serializable {
     /**
      * For use by AllocationRecord Object.
      *
+     * @throws NullPointerException No allocation history to delete.
      */
     public void removeLastAllocationRecord() throws NullPointerException {
         allocationHistory.remove(allocationHistory.size() - 1);
@@ -265,9 +266,12 @@ public class Car implements Serializable {
      * Returns list of allocation records for this vehicle.
      *
      * @return ArrayList&lt;AllocationRecord&gt;
+     * @throws NullPointerException No allocation records exist.
      */
     public ArrayList<AllocationRecord> getAllocationRecords() throws
             NullPointerException {
+        if (allocationHistory == null)
+            throw new NullPointerException();
         return allocationHistory;
     }
 
@@ -288,6 +292,7 @@ public class Car implements Serializable {
     /**
      * Remove last Damage Record.
      *
+     * @throws NullPointerException No damage records exist.
      */
     public void removeLastDamageRecord() throws NullPointerException {
         damageHistory.remove(damageHistory.size() - 1);
@@ -297,9 +302,12 @@ public class Car implements Serializable {
      * Remove a Damage Record from the vehicle.
      *
      * @return ArrayList&lt;DamageRecord&gt;
+     * @throws NullPointerException No damage records exist.
      */
     public ArrayList<DamageRecord> getDamageRecords() throws
             NullPointerException {
+        if (damageHistory == null)
+            throw new NullPointerException();
         return damageHistory;
     }
 }

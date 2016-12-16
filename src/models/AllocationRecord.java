@@ -93,8 +93,11 @@ public class AllocationRecord {
      * Return the end date of the allocation.
      *
      * @return Calendar
+     * @throws NullPointerException No end date specified.
      */
     public Calendar getEndDate() throws NullPointerException {
+        if (endDate == null)
+            throw new NullPointerException();
         return endDate;
     }
 }

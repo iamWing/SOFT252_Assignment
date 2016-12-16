@@ -182,6 +182,7 @@ public class Staff implements Serializable {
     /**
      * For use by AllocationRecord object. Do not use.
      *
+     * @throws NullPointerException No allocation records exist.
      */
     public void removeLastAllocationRecord() throws NullPointerException {
         allocationHistory.remove(allocationHistory.size() - 1);
@@ -201,9 +202,12 @@ public class Staff implements Serializable {
      * Get allocation history.
      *
      * @return ArrayList&lt;AllocationRecord&gt;
+     * @throws NullPointerException No allocation records exist.
      */
     public ArrayList<AllocationRecord> getAllocationRecords() throws
             NullPointerException {
+        if (allocationHistory == null)
+            throw new NullPointerException();
         return allocationHistory;
     }
 }
