@@ -258,6 +258,9 @@ public class Car implements Serializable {
      *
      */
     public void removeLastAllocationRecord() throws NullPointerException {
+        if (allocationHistory == null) {
+            throw new NullPointerException();
+        }
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
@@ -268,6 +271,9 @@ public class Car implements Serializable {
      */
     public ArrayList<AllocationRecord> getAllocationRecords() throws
             NullPointerException {
+        if (allocationHistory == null) {
+            throw new NullPointerException();
+        }
         return allocationHistory;
     }
 
@@ -290,6 +296,9 @@ public class Car implements Serializable {
      *
      */
     public void removeLastDamageRecord() throws NullPointerException {
+        if (damageHistory == null) {
+            throw new NullPointerException();
+        }
         damageHistory.remove(damageHistory.size() - 1);
     }
 
@@ -300,6 +309,9 @@ public class Car implements Serializable {
      */
     public ArrayList<DamageRecord> getDamageRecords() throws
             NullPointerException {
+        if (damageHistory == null) {
+            throw new NullPointerException();
+        }
         return damageHistory;
     }
 }

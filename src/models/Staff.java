@@ -184,6 +184,9 @@ public class Staff implements Serializable {
      *
      */
     public void removeLastAllocationRecord() throws NullPointerException {
+        if (allocationHistory == null) {
+            throw new NullPointerException();
+        }
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
@@ -204,6 +207,9 @@ public class Staff implements Serializable {
      */
     public ArrayList<AllocationRecord> getAllocationRecords() throws
             NullPointerException {
+        if (allocationHistory == null) {
+            throw new NullPointerException();
+        }
         return allocationHistory;
     }
 }

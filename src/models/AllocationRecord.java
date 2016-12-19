@@ -95,6 +95,9 @@ public class AllocationRecord {
      * @return Calendar
      */
     public Calendar getEndDate() throws NullPointerException {
+        if (endDate == null) {
+            throw new NullPointerException();
+        }
         return endDate;
     }
 }
