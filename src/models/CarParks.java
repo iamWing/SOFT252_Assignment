@@ -1,6 +1,7 @@
 package models;
 
 /**
+ * Enumeration of vehicle locations.
  *
  * @author Wing
  */

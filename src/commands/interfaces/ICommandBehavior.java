@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.interfaces;
 
 /**
@@ -13,12 +9,16 @@ public interface ICommandBehavior {
     /**
      * Executes this command behaviour
      * @return boolean True if the command completed successfully, False otherwise
+     * 
+     * @throws Exception Something went wrong.
      */
     boolean executeCommand() throws Exception;
     
     /**
      * Reverses the command behaviour cancelling its effects
      * @return boolean True if the commend was undone, False otherwise
+     * 
+     * @throws Exception Something went wrong.
      */
     boolean undoCommand() throws Exception;
 }
