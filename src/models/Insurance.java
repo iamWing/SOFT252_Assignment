@@ -14,24 +14,20 @@ public class Insurance implements Serializable {
     private String insuranceNumber;
     private Date startDate, endDate;
 
-    private Car car;
-
     /**
      *
      * @param _company String Name of insurance company.
      * @param _insuranceNumber String ID Of Insurance policy.
      * @param _startDate Date Start date of policy.
      * @param _endDate Date End date of policy.
-     * @param _car Car Vehicle the policy applies to.
      */
 
     public Insurance(String _company, String _insuranceNumber, Date _startDate, 
-            Date _endDate, Car _car) {
+            Date _endDate) {
         company = _company;
         insuranceNumber = _insuranceNumber;
         startDate = _startDate;
         endDate = _endDate;
-        car = _car;
     }
 
     /**
@@ -104,14 +100,5 @@ public class Insurance implements Serializable {
      */
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
-
-    /**
-     * Get Car that policy applies to.
-     *
-     * @return Car
-     */
-    public Car getCar() {
-        return car;
     }
 }
