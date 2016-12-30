@@ -20,6 +20,7 @@ public class Car implements Serializable {
     private Insurance insurance;
 
     private ArrayList<AllocationRecord> allocationHistory;
+    private ArrayList<Service> serviceHistory;
     private ArrayList<DamageRecord> damageHistory;
 
     private boolean allocated = false;
@@ -309,5 +310,19 @@ public class Car implements Serializable {
         if (damageHistory == null)
             throw new NullPointerException();
         return damageHistory;
+    }
+    public void addServiceRecord(Service _service)
+    {
+        if(serviceHistory == null)
+            serviceHistory = new ArrayList<>();
+        serviceHistory.add(_service);
+    }
+    public void removeServiceRecord(Service _service)
+    {
+        serviceHistory.remove(_service);
+    }
+    public ArrayList<Service> getServiceRecords()
+    {
+        return serviceHistory;
     }
 }
