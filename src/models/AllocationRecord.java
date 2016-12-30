@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  * 
  * @author Wing
  */
-public class AllocationRecord {
+public class AllocationRecord implements Serializable {
 
     private final Car car;
     private final Staff staff;
@@ -15,6 +16,17 @@ public class AllocationRecord {
     private final boolean longTermAllocation;
     private final Date startDate, endDate;
 
+    
+    public AllocationRecord()
+    {
+        car = null;
+        staff = null;
+        
+        longTermAllocation = false;
+        startDate = null;
+        endDate = null;
+    }
+    
     /**
      * Constructor, creates an Allocation Record and attaches it to the relevant objects.
      * 
