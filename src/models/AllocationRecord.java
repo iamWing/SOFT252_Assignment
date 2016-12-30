@@ -1,6 +1,6 @@
 package models;
 
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A class to hold records of Cars being allocated to Staff.
@@ -13,7 +13,7 @@ public class AllocationRecord {
     private final Staff staff;
     
     private final boolean longTermAllocation;
-    private final Calendar startDate, endDate;
+    private final Date startDate, endDate;
 
     /**
      * Constructor, creates an Allocation Record and attaches it to the relevant objects.
@@ -22,7 +22,7 @@ public class AllocationRecord {
      * @param _staff Employee vehicle is allocated to.
      * @param _startDate Start of allocation.
      */
-    public AllocationRecord(Car _car, Staff _staff, Calendar _startDate) {
+    public AllocationRecord(Car _car, Staff _staff, Date _startDate) {
         car = _car;
         staff = _staff;
         startDate = _startDate;
@@ -41,8 +41,8 @@ public class AllocationRecord {
      * @param _startDate Start of allocation.
      * @param _endDate End of allocation.
      */
-    public AllocationRecord(Car _car, Staff _staff, Calendar _startDate, 
-            Calendar _endDate) {
+    public AllocationRecord(Car _car, Staff _staff, Date _startDate, 
+            Date _endDate) {
         car = _car;
         staff = _staff;
         startDate = _startDate;
@@ -85,7 +85,7 @@ public class AllocationRecord {
      *
      * @return Calendar
      */
-    public Calendar getStarDate() {
+    public Date getStarDate() {
         return startDate;
     }
 
@@ -95,7 +95,7 @@ public class AllocationRecord {
      * @return Calendar
      * @throws NullPointerException No end date specified.
      */
-    public Calendar getEndDate() throws NullPointerException {
+    public Date getEndDate() throws NullPointerException {
         if (endDate == null)
             throw new NullPointerException();
         return endDate;
