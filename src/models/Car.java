@@ -23,10 +23,18 @@ public class Car implements Serializable {
     private ArrayList<Service> serviceHistory;
     private ArrayList<DamageRecord> damageHistory;
 
+    private boolean available = true;   
+
+    
     private boolean allocated = false;
     private boolean damaged = false;
+    private boolean inService = false;
+
+
     private boolean enabled = false;
 
+   
+    
     /**
      * Constructor, creates new Car object.
      *
@@ -59,6 +67,22 @@ public class Car implements Serializable {
 
     // --- Getters & Setters --- //
 
+    
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+    public boolean isInService() {
+        return inService;
+    }
+
+    public void setInService(boolean inService) {
+        this.inService = inService;
+    }
+    
     /**
      * Get car ID.
      *
