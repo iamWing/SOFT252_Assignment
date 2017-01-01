@@ -16,6 +16,8 @@ public class Staff implements Serializable {
     private Car assignedCar;
 
     private ArrayList<AllocationRecord> allocationHistory;
+    
+    private boolean hasCarAllocated = false;
 
     /**
      * Constructor, Create new employee.
@@ -24,6 +26,7 @@ public class Staff implements Serializable {
      */
     public Staff(String _STAFFID) {
         STAFFID = _STAFFID;
+        allocationHistory = new ArrayList<AllocationRecord>();
     }
 
     /**
@@ -44,9 +47,18 @@ public class Staff implements Serializable {
         address = _address;
         licenseNumber = _licenseNumber;
         licenseType = _licenseType;
+        
+        allocationHistory = new ArrayList<AllocationRecord>();
     }
 
-    // --- Getters & Setters --- //
+        // --- Getters & Setters --- //
+    
+    public boolean hasCarAllocated() {
+        return hasCarAllocated;
+    }
+    public void setHasCarAllocated(boolean hasCarAllocated) {    
+        this.hasCarAllocated = hasCarAllocated;
+    }
 
     /**
      * Get Employee ID.
