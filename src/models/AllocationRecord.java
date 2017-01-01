@@ -40,7 +40,7 @@ public class AllocationRecord implements Serializable {
         startDate = _startDate;
         endDate = null;
 
-        longTermAllocation = true;
+        longTermAllocation = false;
         _car.addAllocationRecord(this);
         _staff.addAllocationRecord(this);
     }
@@ -60,7 +60,7 @@ public class AllocationRecord implements Serializable {
         startDate = _startDate;
         endDate = _endDate;
 
-        longTermAllocation = false;
+        longTermAllocation = true;
         _car.addAllocationRecord(this);
         _staff.addAllocationRecord(this);
     }

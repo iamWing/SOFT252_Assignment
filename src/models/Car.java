@@ -25,13 +25,10 @@ public class Car implements Serializable {
 
     private boolean available = true;   
 
-    
     private boolean allocated = false;
     private boolean damaged = false;
     private boolean inService = false;
 
-
-    private boolean enabled = false;
 
    
     
@@ -63,6 +60,11 @@ public class Car implements Serializable {
         seats = _seats;
         location = _loc;
         description = _description;
+        
+        allocationHistory = new ArrayList<AllocationRecord>();
+        serviceHistory = new ArrayList<Service>();
+        damageHistory = new ArrayList<DamageRecord>();
+        
     }
 
     // --- Getters & Setters --- //
@@ -126,7 +128,7 @@ public class Car implements Serializable {
      * @return String
      */
     public String toString() {
-        return this.getCARID() + " - " + this.getBrand() + " " + this.getModel();
+        return this.getCARID() + " - " + this.getBrand() + " " + this.getModel() + "- dmged " +isDamaged() + "- serv " + isInService() + " " + "- alloc " + isAllocated() + "- avail "+ isAvailable();
     }
  
     /**
@@ -251,18 +253,6 @@ public class Car implements Serializable {
      *
      * @return boolean
      */
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    /**
-     * Set vehicle enabled state.
-     *
-     * @param enabled boolean
-     */
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     // --- Allocation history management --- //
 
