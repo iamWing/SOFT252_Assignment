@@ -2,6 +2,8 @@ package models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
+import other.Utils;
 
 /**
  * A class to represent an employee.
@@ -53,11 +55,25 @@ public class Staff implements Serializable {
 
         // --- Getters & Setters --- //
     
-    public boolean hasCarAllocated() {
-        return hasCarAllocated;
-    }
-    public void setHasCarAllocated(boolean hasCarAllocated) {    
-        this.hasCarAllocated = hasCarAllocated;
+    public boolean hasCarAllocated(Date when) {
+        if(allocationHistory != null)
+        {
+            for(AllocationRecord rec : allocationHistory)
+            {
+                if(rec.getLongTermAllocation() && rec.getEndDate() != null)
+                {
+                    if(Utils.CompareDates(rec.getStarDate(), when) <= 0 && Utils.CompareDates(rec.getEndDate(), when) >= 0)
+                    {
+                        return true;
+                    }
+                }
+                else if(Utils.CompareDates(rec.getStarDate(), when) == 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**

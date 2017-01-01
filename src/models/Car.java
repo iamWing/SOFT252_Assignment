@@ -2,6 +2,8 @@ package models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
+import other.Utils;
 
 /**
  * A class to represent a Car.
@@ -23,11 +25,7 @@ public class Car implements Serializable {
     private ArrayList<Service> serviceHistory;
     private ArrayList<DamageRecord> damageHistory;
 
-    private boolean available = true;   
-
-    private boolean allocated = false;
     private boolean damaged = false;
-    private boolean inService = false;
 
 
    
@@ -70,21 +68,68 @@ public class Car implements Serializable {
     // --- Getters & Setters --- //
 
     
-    public boolean isAvailable() {
-        return available;
+    public boolean isAvailable(Date when) {
+        return !this.isInService(when) && !this.isAllocated(when) && !this.isDamaged();
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-    public boolean isInService() {
-        return inService;
-    }
-
-    public void setInService(boolean inService) {
-        this.inService = inService;
+    public boolean isInService(Date when) {
+        if (serviceHistory != null)
+        {
+            for(Service serv : serviceHistory)
+            {
+                if(Utils.CompareDates(serv.getInDate(), when) <= 0 && Utils.CompareDates(serv.getOutDate(), when) >= 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
+    /**
+     * Check if vehicle is allocated to someone.
+     *
+     * @return boolean
+     */
+    public boolean isAllocated(Date when) {
+        if(allocationHistory != null)
+        {
+            for(AllocationRecord rec : allocationHistory)
+            {
+                if(rec.getLongTermAllocation() && rec.getEndDate() != null)
+                {
+                    if(Utils.CompareDates(rec.getStarDate(), when) <= 0 && Utils.CompareDates(rec.getEndDate(), when) >= 0)
+                    {
+                        return true;
+                    }
+                }
+                else if(Utils.CompareDates(rec.getStarDate(), when) == 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Get the vehicle damage status.
+     *
+     * @return boolean
+     */
+    public boolean isDamaged() {
+        return damaged;
+    }
+
+    /**
+     * Set vehicle damage status.
+     *
+     * @param damaged boolean
+     */
+    public void setDamaged(boolean damaged) {
+        this.damaged = damaged;
+    }
+
     /**
      * Get car ID.
      *
@@ -128,7 +173,7 @@ public class Car implements Serializable {
      * @return String
      */
     public String toString() {
-        return this.getCARID() + " - " + this.getBrand() + " " + this.getModel() + "- dmged " +isDamaged() + "- serv " + isInService() + " " + "- alloc " + isAllocated() + "- avail "+ isAvailable();
+        return this.getCARID() + " - " + this.getBrand() + " " + this.getModel() + "- dmged " +isDamaged() + "- serv " + isInService(new Date()) + " " + "- alloc " + isAllocated(new Date()) + "- avail "+ isAvailable(new Date());
     }
  
     /**
@@ -210,42 +255,6 @@ public class Car implements Serializable {
      */
     public void setInsurance(Insurance insurance) {
         this.insurance = insurance;
-    }
-
-    /**
-     * Check if vehicle is allocated to someone.
-     *
-     * @return boolean
-     */
-    public boolean isAllocated() {
-        return allocated;
-    }
-
-    /**
-     * Set the vehicle allocation status.
-     *
-     * @param allocated boolean
-     */
-    public void setAllocated(boolean allocated) {
-        this.allocated = allocated;
-    }
-
-    /**
-     * Get the vehicle damage status.
-     *
-     * @return boolean
-     */
-    public boolean isDamaged() {
-        return damaged;
-    }
-
-    /**
-     * Set vehicle damage status.
-     *
-     * @param damaged boolean
-     */
-    public void setDamaged(boolean damaged) {
-        this.damaged = damaged;
     }
 
     /**
