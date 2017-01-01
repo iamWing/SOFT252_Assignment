@@ -321,6 +321,10 @@ public class Car implements Serializable {
     public void removeLastDamageRecord() throws NullPointerException {
         damageHistory.remove(damageHistory.size() - 1);
     }
+    public void removeDamageRecord(DamageRecord record)
+    {
+        damageHistory.remove(record);
+    }
 
     /**
      * Remove a Damage Record from the vehicle.
