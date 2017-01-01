@@ -1,19 +1,27 @@
 package models;
 
-import java.time.LocalDateTime;
-import java.util.Calendar;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Class to hold records of vehicle damage.
  *
  * @author Wing
  */
-public class DamageRecord {
+public class DamageRecord implements Serializable {
     
-    private LocalDateTime createDate;
-    private Calendar damageDate;
+    private Date createDate;
+    private Date damageDate;
     private Staff damagedBy;
     private String description;
+    
+    public DamageRecord()
+    {
+        createDate = new Date();
+        damageDate = new Date();
+        damagedBy = null;
+        description = " ";
+    }
 
     /**
      * Constructor, creates DamageRecord and attaches it to the Car.
@@ -23,20 +31,34 @@ public class DamageRecord {
      * @param _damagedBy Staff Person who did the damage.
      * @param _desc String Description of damage.
      */
-    public DamageRecord(Car _car, Calendar _damageDate, Staff _damagedBy, String _desc) {
-        createDate = LocalDateTime.now();
+    public DamageRecord(Car _car, Date _damageDate, Staff _damagedBy, String _desc) {
+        createDate = new Date();
         damageDate  = _damageDate;
         damagedBy = _damagedBy;
         description = _desc;
         _car.addDamageRecord(this);
     }
+    @Override
+    public String toString()
+    {
+        return damageDate.toString() + "-" + damagedBy.getForeName() + " " +damagedBy.getLastName();
+    }
+    
+    public Date getCreateDate() {
+        return createDate;
+    }
 
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    
     /**
      * Get the date of the damage.
      *
      * @return Calendar
      */
-    public Calendar getDamageDate() {
+    public Date getDamageDate() {
         return damageDate;
     }
 
@@ -45,7 +67,7 @@ public class DamageRecord {
      *
      * @param damageDate Calendar
      */
-    public void setDamageDate(Calendar damageDate) {
+    public void setDamageDate(Date damageDate) {
         this.damageDate = damageDate;
     }
 
