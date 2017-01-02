@@ -65,10 +65,10 @@ public class AllocationRecord implements Serializable {
         _staff.addAllocationRecord(this);
     }
     
-    public void DeleteAllocationRecord(AllocationRecord rec)
+    public void Delete()
     {
-        rec.car.removeAllocationRecord(rec);
-        rec.staff.removeAllocationRecord(rec);
+        car.removeAllocationRecord(this);
+        staff.removeAllocationRecord(this);
     }
     
     /**
