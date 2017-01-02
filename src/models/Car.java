@@ -285,7 +285,11 @@ public class Car implements Serializable {
     public void removeLastAllocationRecord() throws NullPointerException {
         allocationHistory.remove(allocationHistory.size() - 1);
     }
-
+    
+    public void removeAllocationRecord(AllocationRecord rec)
+    {
+        allocationHistory.remove(rec);
+    }
     /**
      * Returns list of allocation records for this vehicle.
      *

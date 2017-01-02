@@ -64,7 +64,13 @@ public class AllocationRecord implements Serializable {
         _car.addAllocationRecord(this);
         _staff.addAllocationRecord(this);
     }
-
+    
+    public void DeleteAllocationRecord(AllocationRecord rec)
+    {
+        rec.car.removeAllocationRecord(rec);
+        rec.staff.removeAllocationRecord(rec);
+    }
+    
     /**
      * Returns the Car this record relates to.
      * 

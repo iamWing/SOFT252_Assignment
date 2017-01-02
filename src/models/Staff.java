@@ -216,6 +216,10 @@ public class Staff implements Serializable {
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
+    public void removeAllocationRecord(AllocationRecord rec)
+    {
+        allocationHistory.remove(rec);
+    }
     /**
      * Convert to String.
      * String format is StaffID: Forename Surname
