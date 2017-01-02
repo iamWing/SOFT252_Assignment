@@ -103,7 +103,7 @@ public class AllocationRecord implements Serializable {
      *
      * @return Calendar
      */
-    public Date getStarDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
@@ -117,5 +117,18 @@ public class AllocationRecord implements Serializable {
         if (endDate == null)
             throw new NullPointerException();
         return endDate;
+    }
+    
+    /**
+     * String representation of object.
+     *
+     * @return String
+     */
+    public String toString()
+    {
+        if (endDate != null)
+            return car.getCARID() + " Assigned to " + staff.getSTAFFID() + " from " + startDate + " to " + endDate;
+        else
+            return car.getCARID() + " Assigned to " + staff.getSTAFFID() + " on " + startDate;
     }
 }

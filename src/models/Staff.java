@@ -62,12 +62,12 @@ public class Staff implements Serializable {
             {
                 if(rec.getLongTermAllocation() && rec.getEndDate() != null)
                 {
-                    if(Utils.CompareDates(rec.getStarDate(), when) <= 0 && Utils.CompareDates(rec.getEndDate(), when) >= 0)
+                    if(Utils.CompareDates(rec.getStartDate(), when) <= 0 && Utils.CompareDates(rec.getEndDate(), when) >= 0)
                     {
                         return true;
                     }
                 }
-                else if(Utils.CompareDates(rec.getStarDate(), when) == 0)
+                else if(Utils.CompareDates(rec.getStartDate(), when) == 0)
                 {
                     return true;
                 }
