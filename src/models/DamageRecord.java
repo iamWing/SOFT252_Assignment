@@ -15,6 +15,10 @@ public class DamageRecord implements Serializable {
     private Staff damagedBy;
     private String description;
     
+    /**
+     * Empty Constructor, Exists for compatibility purposes.
+     * Should not be used.
+     */
     public DamageRecord()
     {
         createDate = new Date();
@@ -38,16 +42,32 @@ public class DamageRecord implements Serializable {
         description = _desc;
         _car.addDamageRecord(this);
     }
+    /**
+     * Format record as a String.
+     * String format is Date - Name
+     *
+     * @return String
+     */
     @Override
     public String toString()
     {
         return damageDate.toString() + "-" + damagedBy.getForeName() + " " +damagedBy.getLastName();
     }
     
+    /**
+     * Get the create date.
+     *
+     * @return Date
+     */
     public Date getCreateDate() {
         return createDate;
     }
 
+    /**
+     * Set the create date.
+     *
+     * @param createDate Date
+     */
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
@@ -56,7 +76,7 @@ public class DamageRecord implements Serializable {
     /**
      * Get the date of the damage.
      *
-     * @return Calendar
+     * @return Date
      */
     public Date getDamageDate() {
         return damageDate;
@@ -65,7 +85,7 @@ public class DamageRecord implements Serializable {
     /**
      * Set the damage date.
      *
-     * @param damageDate Calendar
+     * @param damageDate Date
      */
     public void setDamageDate(Date damageDate) {
         this.damageDate = damageDate;

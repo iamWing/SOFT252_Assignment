@@ -65,13 +65,22 @@ public class Car implements Serializable {
         
     }
 
-    // --- Getters & Setters --- //
-
-    
+    /**
+     * Returns the vehicle availability status.
+     *
+     * @param when Date Which date you wish to check status for.
+     * @return boolean
+     */
     public boolean isAvailable(Date when) {
         return !this.isInService(when) && !this.isAllocated(when) && !this.isDamaged();
     }
 
+    /**
+     * Returns if the vehicle is in service on the selected date.
+     *
+     * @param when Date Which date you wish to check status for.
+     * @return boolean
+     */
     public boolean isInService(Date when) {
         if (serviceHistory != null)
         {
@@ -87,8 +96,9 @@ public class Car implements Serializable {
     }
     
     /**
-     * Check if vehicle is allocated to someone.
+     * Returns if the vehicle is allocated on the selected date.
      *
+     * @param when Date Which date you wish to check status for.
      * @return boolean
      */
     public boolean isAllocated(Date when) {
@@ -266,7 +276,7 @@ public class Car implements Serializable {
     // --- Allocation history management --- //
 
     /**
-     * For use by AllocationRecord Object.
+     * For use by AllocationRecord Object. Adds the object to the vehicle.
      *
      * @param _record AllocationRecord
      */
@@ -278,7 +288,7 @@ public class Car implements Serializable {
     }
 
     /**
-     * For use by AllocationRecord Object.
+     * For use by AllocationRecord Object. Removes the object from the vehicle.
      *
      * @throws NullPointerException No allocation history to delete.
      */
@@ -286,6 +296,12 @@ public class Car implements Serializable {
         allocationHistory.remove(allocationHistory.size() - 1);
     }
     
+    /**
+     * For use by AllocationRecord Object. Removes the object from the vehicle.
+     *
+     * @param rec AllocationRecord The record to remove.
+     * @throws NullPointerException No allocation history to delete.
+     */
     public void removeAllocationRecord(AllocationRecord rec)
     {
         allocationHistory.remove(rec);
@@ -325,6 +341,12 @@ public class Car implements Serializable {
     public void removeLastDamageRecord() throws NullPointerException {
         damageHistory.remove(damageHistory.size() - 1);
     }
+    /**
+     * Remove selected Damage Record.
+     *
+     * @param record DamageRecord The record to remove.
+     * @throws NullPointerException No damage records exist.
+     */
     public void removeDamageRecord(DamageRecord record)
     {
         damageHistory.remove(record);
@@ -342,18 +364,39 @@ public class Car implements Serializable {
             throw new NullPointerException();
         return damageHistory;
     }
+    
+    /**
+     * Add a Service Record to the vehicle.
+     *
+     * @param _service Service
+     */
     public void addServiceRecord(Service _service)
     {
         if(serviceHistory == null)
             serviceHistory = new ArrayList<>();
         serviceHistory.add(_service);
     }
+
+    /**
+     * Remove a Service Record from the vehicle.
+     *
+     * @param _service Service
+     */
     public void removeServiceRecord(Service _service)
     {
         serviceHistory.remove(_service);
     }
-    public ArrayList<Service> getServiceRecords()
+    
+    /**
+     * Returns list of allocation records for this vehicle.
+     *
+     * @return ArrayList&lt;Service&gt;
+     * @throws NullPointerException No allocation records exist.
+     */
+    public ArrayList<Service> getServiceRecords() throws NullPointerException 
     {
+        if(serviceHistory == null)
+            throw new NullPointerException();
         return serviceHistory;
     }
 }

@@ -15,6 +15,11 @@ public class CommandTracker implements ICommandTracker {
     private static Stack<ICommand> undoStack = new Stack<>();
     private static Stack<ICommand> redoStack = new Stack<>();
 
+    /**
+     * Executes the command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean executeCommand(ICommand _command) throws Exception {
         boolean blnExecuted = false;
@@ -28,6 +33,11 @@ public class CommandTracker implements ICommandTracker {
         return blnExecuted;
     }
 
+    /**
+     * Undoes the previously executed command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean undoLastCommand() throws Exception {
         boolean blnUndone = false;
@@ -43,6 +53,11 @@ public class CommandTracker implements ICommandTracker {
         return blnUndone;
     }
 
+    /**
+     * Redoes the last undone command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean redoLastCommand() throws Exception {
         boolean blnDone = false;

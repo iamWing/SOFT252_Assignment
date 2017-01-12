@@ -53,8 +53,12 @@ public class Staff implements Serializable {
         allocationHistory = new ArrayList<AllocationRecord>();
     }
 
-        // --- Getters & Setters --- //
-    
+    /**
+     * Check if they already have a car.
+     *
+     * @param when Date to check.
+     * @return boolean
+     */
     public boolean hasCarAllocated(Date when) {
         if(allocationHistory != null)
         {

@@ -1,18 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package other;
 
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- *
+ * Utility class for general purpose functions.
+ * 
  * @author NotMike
  */
 public class Utils {
+    /**
+     * Compares 2 Date objects, only accounting for date and not the full Timestamp.
+     * Allows an easy way to check if 2 Date objects reference the same date.
+     * 
+     * If date1 is before date2 return value is &lt;0.
+     * If date1 is equal to date2 return value is 0.
+     * If date1 is after date2 return value is &gt;0.
+     * 
+     * @param date1 First Date
+     * @param date2 Second Date
+     * @return int Status
+     */
     public static int CompareDates(Date date1, Date date2)
     {
         Calendar cal1 = Calendar.getInstance();

@@ -17,6 +17,10 @@ public class AllocationRecord implements Serializable {
     private final Date startDate, endDate;
 
     
+    /**
+     * Empty Constructor, Exists for compatibility purposes.
+     * Should not be used.
+     */
     public AllocationRecord()
     {
         car = null;
@@ -65,6 +69,9 @@ public class AllocationRecord implements Serializable {
         _staff.addAllocationRecord(this);
     }
     
+    /**
+     * Delete the allocation record.
+     */
     public void Delete()
     {
         car.removeAllocationRecord(this);
