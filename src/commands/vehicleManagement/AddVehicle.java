@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -11,6 +6,7 @@ import models.Car;
 import models.CarParks;
 
 /**
+ * Command to add Car to datastore.
  *
  * @author Wing
  */
@@ -30,6 +26,11 @@ public class AddVehicle implements ICommandBehavior {
         vehicle = _car;
     }
 
+    /**
+     * Executes the command.
+     * @return success
+     * @throws Exception on error.
+     */
     @Override
     public boolean executeCommand() throws Exception {
         for (CarParks CarPark : CarParks.values()) {
@@ -41,6 +42,11 @@ public class AddVehicle implements ICommandBehavior {
         return Datastore.AddCar(vehicle);
     }
 
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand() {
         return Datastore.RemoveCar(vehicle);

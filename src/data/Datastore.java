@@ -36,20 +36,36 @@ import models.Staff;
 public class Datastore implements Serializable {
     private ArrayList<Car> cars = new ArrayList<Car>();
     private ArrayList<Staff> staff = new ArrayList<Staff>();
-    public transient static Datastore store;
-    public transient static String datastoreLocation;
+    private transient static Datastore store;
+    private transient static String datastoreLocation;
     
     private static CommandTracker cmdTracker = new CommandTracker();
     
+    /**
+     * Dummy constructor. Do not use.
+     * Use GetDatastore() to obtain the Datastore object.
+     */
     public Datastore()
     {
     }
+    /**
+     * Add Car to Datastore.
+     * 
+     * @param car Car to add.
+     * @return success
+     * @throws DatastoreNotLoadedException if datastore not loaded.
+     */
     public static boolean AddCar(Car car) throws DatastoreNotLoadedException
     {
         if (Datastore.store == null)
             throw new DatastoreNotLoadedException();
         return Datastore.store.cars.add(car);
     }
+    /**
+     * Get cars in specified location.
+     * @param location CarParks
+     * @return ArrayList of Cars.
+     */
     public static ArrayList<Car> GetCars(CarParks location)
     {
         /* Eat NullPointerException so NetBeans Designer can load. */
@@ -64,6 +80,10 @@ public class Datastore implements Serializable {
         }
         return foundCars;
     }
+    /**
+     * Get all cars.
+     * @return ArrayList of Cars.
+     */
     public static ArrayList<Car> GetCars()
     {
         /* Eat NullPointerException so NetBeans Designer can load. */
@@ -78,25 +98,49 @@ public class Datastore implements Serializable {
         }
         return foundCars;
     }
+    /**
+     * Get specific Car.
+     * 
+     * @param index Position of Car to select.
+     * @return Car
+     * @throws DatastoreNotLoadedException if datastore not loaded.
+     */
     public static Car GetCarAtIndex(int index) throws DatastoreNotLoadedException
     {
         if (Datastore.store == null)
             throw new DatastoreNotLoadedException();
         return Datastore.store.cars.get(index);
     }
-    
+    /**
+     * Remove Car from Datastore
+     * @param car Car to remove.
+     * @return success
+     * @throws DatastoreNotLoadedException if datastore not loaded.
+     */
     public static boolean RemoveCar(Car car) throws DatastoreNotLoadedException
     {
         if (Datastore.store == null)
             throw new DatastoreNotLoadedException();
         return Datastore.store.cars.remove(car);
     }
+    /**
+     * Add Staff to datastore.
+     * 
+     * @param staff Staff to add.
+     * @return success
+     * @throws DatastoreNotLoadedException if datastore not loaded.
+     */
     public static boolean AddStaff(Staff staff) throws DatastoreNotLoadedException
     {
         if (Datastore.store == null)
             throw new DatastoreNotLoadedException();
         return Datastore.store.staff.add(staff);
     }
+    /**
+     * Get specified Staff object.
+     * @param staffID String ID of Staff object to fetch.
+     * @return Staff or null
+     */
     public static Staff GetStaff(String staffID)
     {
         for(Staff currStaff : Datastore.store.staff)
@@ -105,10 +149,14 @@ public class Datastore implements Serializable {
             {
                 return currStaff;
             }
-                        
         }
         return null;
     }
+    /**
+     * Get list of Staff.
+     * 
+     * @return ArrayList of Staff.
+     */
     public static ArrayList<Staff> GetStaff()
     {
         /* Eat NullPointerException so NetBeans Designer can load. */
@@ -122,12 +170,24 @@ public class Datastore implements Serializable {
         }
         return foundStaff;
     }
+    /**
+     * Remove Staff from Datastore.
+     * 
+     * @param staff Staff
+     * @return success
+     * @throws DatastoreNotLoadedException if datastore not loaded.
+     */
     public static boolean RemoveStaff(Staff staff) throws DatastoreNotLoadedException
     {
         if (Datastore.store == null)
             throw new DatastoreNotLoadedException();
         return Datastore.store.staff.remove(staff);
     }
+    /**
+     * Gets the datastore. Loads the default datastore if not loaded.
+     * 
+     * @return Datastore
+     */
     public static Datastore GetDatastore()
     {
         if (Datastore.store != null)
@@ -135,6 +195,12 @@ public class Datastore implements Serializable {
         else
             return LoadDatastore("./default.dat");
     }
+    /**
+     * Loads a specified datastore.
+     * 
+     * @param location Path to datastore. Default value is "./default.dat".
+     * @return Datastore
+     */
     public static Datastore LoadDatastore(String location)
     {
         try
@@ -191,6 +257,14 @@ public class Datastore implements Serializable {
         }
         return Datastore.store;
     }
+    /**
+     * Add Insurance to Car object.
+     * @param car Car.
+     * @param insuranceCompany String
+     * @param insuranceNumber String
+     * @param startDate Date
+     * @param endDate Date
+     */
     private static void AddInsuranceToCar(Car car, String insuranceCompany, String insuranceNumber, Date startDate, Date endDate)
     {
         ICommandBehavior cmdBehavior = new AddInsurance(car,insuranceCompany,insuranceNumber,startDate,endDate);
@@ -204,6 +278,9 @@ public class Datastore implements Serializable {
             System.err.print(ex.getMessage());
         }
     }
+    /**
+     * Save the datastore.
+     */
     public static void Save()
     {
         try

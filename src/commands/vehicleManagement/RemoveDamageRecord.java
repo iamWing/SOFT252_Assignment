@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -10,6 +5,7 @@ import models.Car;
 import models.DamageRecord;
 
 /**
+ * Command to remove DamageRecord from Car.
  *
  * @author FairyMental
  */
@@ -23,12 +19,21 @@ public class RemoveDamageRecord implements ICommandBehavior {
         car = _car;
         record = _record;
     }
+    /**
+     * Executes the command.
+     * @return success
+     */
     @Override
     public boolean executeCommand()
     {
         car.removeDamageRecord(record);
         return true;
     }
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand()
     {

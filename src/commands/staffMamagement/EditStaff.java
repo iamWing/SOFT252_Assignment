@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.staffMamagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -10,6 +5,7 @@ import data.Datastore;
 import models.Staff;
 
 /**
+ * Command to edit a staff member.
  *
  * @author Wing
  */
@@ -30,6 +26,11 @@ public class EditStaff implements ICommandBehavior {
                 && (!_linceseType.isEmpty())) ? _linceseType : "";
     }
 
+    /**
+     * Executes the command.
+     * @return success
+     * @throws Exception on error.
+     */
     @Override
     public boolean executeCommand() throws Exception {
         for (Staff _staff : Datastore.GetStaff()) {
@@ -66,6 +67,11 @@ public class EditStaff implements ICommandBehavior {
         }
     }
 
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand() throws Exception {
         for (Staff _staff : Datastore.GetStaff()) {

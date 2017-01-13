@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -11,6 +6,7 @@ import models.Car;
 import models.Insurance;
 
 /**
+ * Command to remove an AllocationRecord from Car and Staff.
  *
  * @author FairyMental
  */
@@ -25,12 +21,21 @@ public class RemoveAllocationRecord implements ICommandBehavior{
         
     }
     
+    /**
+     * Executes the command.
+     * @return success
+     */
     @Override
     public boolean executeCommand()
     {
         record.Delete();
         return true;
     }
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand()
     {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -12,6 +7,7 @@ import models.DamageRecord;
 import models.Staff;
 
 /**
+ * Command to add a DamageRecord to a Car.
  *
  * @author FairyMental
  */
@@ -32,12 +28,21 @@ public class AddDamageRecord implements ICommandBehavior {
         description = _description;
     }
     
+    /**
+     * Executes the command.
+     * @return success
+     */
     @Override
     public boolean executeCommand()
     {
         record = new DamageRecord(car,damageDate,damagedBy, description);
         return true;
     }
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand()
     {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -12,6 +7,7 @@ import models.Service;
 import other.Utils;
 
 /**
+ * Command to add Service record to Car.
  *
  * @author FairyMental
  */
@@ -30,6 +26,10 @@ public class AddService implements ICommandBehavior {
         outDate = _outDate;
         description = _description;
     }
+    /**
+     * Executes the command.
+     * @return success
+     */
     @Override 
     public boolean executeCommand()
     {
@@ -38,6 +38,11 @@ public class AddService implements ICommandBehavior {
         return true;
     }
     
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand()
     {

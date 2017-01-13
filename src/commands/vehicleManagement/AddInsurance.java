@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -12,6 +7,7 @@ import models.Car;
 import models.Insurance;
 
 /**
+ * Command to set vehicle Insurance .
  *
  * @author Wing
  */
@@ -31,6 +27,10 @@ public class AddInsurance implements ICommandBehavior {
         endDate = _endDate;
     }
 
+    /**
+     * Executes the command.
+     * @return success
+     */
     @Override
     public boolean executeCommand() throws Exception {
         for (Car _currVehicle : Datastore.GetCars()) {
@@ -50,6 +50,11 @@ public class AddInsurance implements ICommandBehavior {
         }
     }
 
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand() throws Exception {
         if (vehicle.getInsurance() == insurance) {

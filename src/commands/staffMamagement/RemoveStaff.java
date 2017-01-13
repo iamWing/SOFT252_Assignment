@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.staffMamagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -10,6 +5,7 @@ import data.Datastore;
 import models.Staff;
 
 /**
+ * Command to remove Staff object from the datastore.
  *
  * @author FairyMental
  */
@@ -31,11 +27,20 @@ public class RemoveStaff implements ICommandBehavior{
             staff = _staff;
     }
     
+    /**
+     * Executes the command.
+     * @return success
+     */
     @Override
     public boolean executeCommand()
     {
         return Datastore.RemoveStaff(staff);
     }
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand() throws Exception
     {

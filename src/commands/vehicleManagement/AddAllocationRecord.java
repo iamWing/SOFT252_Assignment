@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -12,6 +7,7 @@ import models.Car;
 import models.Staff;
 
 /**
+ * Command to add an AllocationRecord to Car and Staff.
  *
  * @author FairyMental
  */
@@ -44,6 +40,10 @@ public class AddAllocationRecord implements ICommandBehavior{
         startDate = _startDate;
     }
     
+    /**
+     * Executes the command.
+     * @return success
+     */
     @Override
     public boolean executeCommand()
     {
@@ -53,6 +53,11 @@ public class AddAllocationRecord implements ICommandBehavior{
             record = new AllocationRecord(car,staff,startDate);
         return true;
     }
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     */
     @Override
     public boolean undoCommand()
     {
