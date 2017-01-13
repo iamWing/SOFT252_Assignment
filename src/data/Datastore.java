@@ -49,6 +49,14 @@ public class Datastore implements Serializable {
     {
     }
     /**
+     * For use by unit tests, loads an empty datastore. Can not be saved.
+     */
+    public static void TestDatastore()
+    {
+        Datastore.store = new Datastore();
+        Datastore.datastoreLocation = null;
+    }
+    /**
      * Add Car to Datastore.
      * 
      * @param car Car to add.
@@ -214,7 +222,6 @@ public class Datastore implements Serializable {
         {
             Datastore.store = new Datastore();
             Datastore.datastoreLocation = location;
-            DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             int result = JOptionPane.showConfirmDialog(null, "No data found. Load sample data?", "Datastore", JOptionPane.YES_NO_CANCEL_OPTION);
             if (result == JOptionPane.CANCEL_OPTION)
             {
