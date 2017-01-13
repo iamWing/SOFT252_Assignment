@@ -2,6 +2,8 @@ package commands;
 
 import commands.interfaces.ICommand;
 import commands.interfaces.ICommandTracker;
+import commands.interfaces.ICommandWatcher;
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -14,6 +16,7 @@ public class CommandTracker implements ICommandTracker {
     //Declare the 'Done' and 'Un-Done' stacks of ICommand objects
     private static Stack<ICommand> undoStack = new Stack<>();
     private static Stack<ICommand> redoStack = new Stack<>();
+    private static ArrayList<ICommandWatcher> observers = new ArrayList<>();
 
     /**
      * Executes the command.
@@ -30,6 +33,7 @@ public class CommandTracker implements ICommandTracker {
                 blnExecuted = true;
             }   //Else not needed false is returned by default
         }
+        CommandTracker.notifyCommandWatchers();
         return blnExecuted;
     }
 
@@ -50,6 +54,7 @@ public class CommandTracker implements ICommandTracker {
             redoStack.push(lastCommand);
             blnUndone = true;
         }   //Else not needed false is returned by default
+        CommandTracker.notifyCommandWatchers();
         return blnUndone;
     }
 
@@ -70,8 +75,34 @@ public class CommandTracker implements ICommandTracker {
             undoStack.push(lastCommand);
             blnDone = true;
         }   //Else not needed false is returned by default
-
+        CommandTracker.notifyCommandWatchers();
         return blnDone;
     }
-
+    /**
+     * Register ICommandWatcher observer.
+     * 
+     * @param observer ICommandWatcher
+     */
+    public static void addCommandWatcher(ICommandWatcher observer)
+    {
+        CommandTracker.observers.add(observer);
+    }
+    /**
+     * Remove observer.
+     * @param observer ICommandWatcher
+     */
+    public static void removeCommandWatcher(ICommandWatcher observer)
+    {
+        CommandTracker.observers.remove(observer);
+    }
+    /**
+     * Notify observers.
+     */
+    private static void notifyCommandWatchers()
+    {
+        for (ICommandWatcher observer : CommandTracker.observers)
+        {
+            observer.notifyCommandWatcher();
+        }
+    }
 }
