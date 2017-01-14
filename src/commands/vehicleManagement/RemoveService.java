@@ -13,6 +13,12 @@ public class RemoveService implements ICommandBehavior{
     private Car car;
     private Service service;
     
+    /**
+     * Create RemoveServoce command object.
+     * 
+     * @param _car Car
+     * @param _service Service 
+     */
     public RemoveService(Car _car,Service _service)
     {
         car = _car;

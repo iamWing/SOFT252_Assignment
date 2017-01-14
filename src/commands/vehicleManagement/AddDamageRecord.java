@@ -19,6 +19,14 @@ public class AddDamageRecord implements ICommandBehavior {
     private Staff damagedBy;
     private String description;
     
+    /**
+     * Create AddDamageRecord command object.
+     * 
+     * @param _car Car
+     * @param _damageDate Date
+     * @param _damagedBy Staff
+     * @param _description String
+     */
     public AddDamageRecord(Car _car, Date _damageDate, Staff _damagedBy, String _description)
     {
         car = _car;

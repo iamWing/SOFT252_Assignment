@@ -18,6 +18,14 @@ public class AddService implements ICommandBehavior {
     private Date inDate, outDate;
     private String description;
     
+    /**
+     * Create AddService command object.
+     * 
+     * @param _car Car
+     * @param _inDate Date
+     * @param _outDate Date
+     * @param _description String
+     */
     public AddService(Car _car, Date _inDate, Date _outDate, String _description)
     {
         car = _car;

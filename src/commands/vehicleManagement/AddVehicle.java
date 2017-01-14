@@ -13,14 +13,33 @@ import models.CarParks;
 public class AddVehicle implements ICommandBehavior {
     private Car vehicle;
 
+    /**
+     * Create AddVehicle command object.
+     * 
+     * @param _carId String
+     */
     public AddVehicle(String _carId) {
         vehicle = new Car(_carId);
     }
-
+    /**
+     * Create AddVehicle command object.
+     * 
+     * @param _carId String
+     * @param _brand String
+     * @param _model String
+     * @param _seats int
+     * @param _loc CarParks
+     * @param _desc String
+     */
     public AddVehicle(String _carId, String _brand, String _model, 
             int _seats, CarParks _loc, String _desc) {
         vehicle = new Car(_carId, _brand, _model, _seats, _loc, _desc);
     } 
+    /**
+     * Create AddVehicle command object.
+     * 
+     * @param _car Car
+     */
     public AddVehicle(Car _car)
     {
         vehicle = _car;

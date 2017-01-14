@@ -13,6 +13,12 @@ import models.CarParks;
 public class RemoveVehicle implements ICommandBehavior{
     private Car car;
     
+    /**
+     * Create RemoveVehicle Command
+     * 
+     * @param _carId String
+     * @throws Exception 
+     */
     public RemoveVehicle(String _carId) throws Exception {
         for (Car _car : Datastore.GetCars()) {
             if (_car.getCARID().equals(_carId)) {
@@ -23,6 +29,10 @@ public class RemoveVehicle implements ICommandBehavior{
         }
     }
 
+    /**
+     * Create RemoveVehicle COmmand
+     * @param _car Car
+     */
     public RemoveVehicle(Car _car)
     {
         car = _car;
@@ -41,6 +51,7 @@ public class RemoveVehicle implements ICommandBehavior{
      * Undo the command.
      * 
      * @return success
+     * @throws Exception if vehicle already exists.
      */
     @Override
     public boolean undoCommand() throws Exception

@@ -21,6 +21,14 @@ public class AddAllocationRecord implements ICommandBehavior{
     private Date startDate;
     private Date endDate;
     
+    /**
+     * Create AddAllocationRecord command object.
+     * 
+     * @param _car
+     * @param _staff
+     * @param _startDate
+     * @param _endDate 
+     */
     public AddAllocationRecord(Car _car, Staff _staff, Date _startDate, Date _endDate)
     {
         longTermAllocation = true;
@@ -31,6 +39,13 @@ public class AddAllocationRecord implements ICommandBehavior{
         startDate = _startDate;
         endDate = _endDate;
     }
+    /**
+     * Create AddAllocationRecord command object.
+     * 
+     * @param _car Car
+     * @param _staff Staff
+     * @param _startDate  Date
+     */
     public AddAllocationRecord(Car _car, Staff _staff, Date _startDate)
     {
         longTermAllocation = false;

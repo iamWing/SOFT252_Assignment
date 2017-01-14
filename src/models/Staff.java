@@ -220,6 +220,11 @@ public class Staff implements Serializable {
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
+    /**
+     * For use by AllocationRecord object. No not use.
+     * 
+     * @param rec AllocationRecord
+     */
     public void removeAllocationRecord(AllocationRecord rec)
     {
         allocationHistory.remove(rec);

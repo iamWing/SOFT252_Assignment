@@ -15,6 +15,16 @@ public class EditStaff implements ICommandBehavior {
     private String staffId, fName, lName, addr, licenseNumber, licenseType;
     private Staff staff;
 
+    /**
+     * Create EditStaff command object.
+     * 
+     * @param _staffId String
+     * @param _fName String
+     * @param _lName String
+     * @param _addr String
+     * @param _lincenseNumber String
+     * @param _linceseType String
+     */
     public EditStaff(String _staffId, String _fName, String _lName, String _addr, String _lincenseNumber, String _linceseType) {
         staffId = _staffId;
         fName = ((_fName != null) && (!_fName.isEmpty())) ? _fName : "";

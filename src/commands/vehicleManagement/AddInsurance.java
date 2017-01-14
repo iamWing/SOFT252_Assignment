@@ -18,6 +18,15 @@ public class AddInsurance implements ICommandBehavior {
     private String company, insuranceNumber;
     private Date startDate, endDate;
 
+    /**
+     * Create AddInsurance command object.
+     * 
+     * @param _vehicle Car
+     * @param _company String
+     * @param _insuranceNumber String
+     * @param _startDate Date
+     * @param _endDate Date
+     */
     public AddInsurance(Car _vehicle, String _company, String _insuranceNumber,
             Date _startDate, Date _endDate) {
         vehicle = _vehicle;
@@ -30,6 +39,7 @@ public class AddInsurance implements ICommandBehavior {
     /**
      * Executes the command.
      * @return success
+     * @throws Exception if insurance already set.
      */
     @Override
     public boolean executeCommand() throws Exception {
@@ -56,7 +66,7 @@ public class AddInsurance implements ICommandBehavior {
      * @return success
      */
     @Override
-    public boolean undoCommand() throws Exception {
+    public boolean undoCommand() {
         if (vehicle.getInsurance() == insurance) {
             vehicle.setInsurance(null);
             return true;

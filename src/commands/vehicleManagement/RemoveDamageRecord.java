@@ -13,7 +13,11 @@ public class RemoveDamageRecord implements ICommandBehavior {
     private Car car;
     private DamageRecord record;
     
-    
+    /**
+     * Create RemoveDamageRecord command object.
+     * @param _car Car
+     * @param _record DamageRecord
+     */
     public RemoveDamageRecord (Car _car,DamageRecord _record)
     {
         car = _car;

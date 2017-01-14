@@ -14,7 +14,10 @@ public class RemoveAllocationRecord implements ICommandBehavior{
     private Car car;
     private AllocationRecord record;
     
-    
+    /**
+     * Create RemoveAllocationRecord command object.
+     * @param _record AllocationRecord
+     */
     public RemoveAllocationRecord(AllocationRecord _record)
     {
         record = _record;

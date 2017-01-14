@@ -12,6 +12,12 @@ import models.Staff;
 public class RemoveStaff implements ICommandBehavior{
     private Staff staff;
     
+    /**
+     * Create RemoveStaff command object.
+     * 
+     * @param _staffId String
+     * @throws Exception if Staff not found.
+     */
     public RemoveStaff(String _staffId) throws Exception
     {
         for (Staff _staff : Datastore.GetStaff()) {
@@ -21,6 +27,11 @@ public class RemoveStaff implements ICommandBehavior{
         
         throw new Exception ("Staff ID does not exist");
     }
+    /**
+     * Create RemoveCar command object.
+     * 
+     * @param _staff Staff
+     */
     public RemoveStaff(Staff _staff)
     {
         if (_staff != null)
