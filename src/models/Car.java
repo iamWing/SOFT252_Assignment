@@ -183,7 +183,7 @@ public class Car implements Serializable {
      * @return String
      */
     public String toString() {
-        return this.getCARID() + " - " + this.getBrand() + " " + this.getModel() + "- dmged " +isDamaged() + "- serv " + isInService(new Date()) + " " + "- alloc " + isAllocated(new Date()) + "- avail "+ isAvailable(new Date());
+        return this.getCARID() + " - " + this.getBrand() + " " + this.getModel();
     }
  
     /**
