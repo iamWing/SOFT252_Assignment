@@ -19,6 +19,26 @@ public class CommandTracker implements ICommandTracker {
     private static ArrayList<ICommandWatcher> observers = new ArrayList<>();
 
     /**
+     * Checks if there are any operations to undo.
+     * 
+     * @return boolean
+     */
+    public boolean HasUndoHistory()
+    {
+        return !undoStack.isEmpty();
+    }
+
+    /**
+     * Checks if there are any operations to redo.
+     * 
+     * @return boolean
+     */
+    public boolean HasRedoHistory()
+    {
+        return !redoStack.isEmpty();
+    }
+
+    /**
      * Executes the command.
      * 
      * @throws Exception Something went wrong.
