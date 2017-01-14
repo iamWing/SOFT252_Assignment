@@ -45,12 +45,9 @@ public class RemoveVehicle implements ICommandBehavior{
     @Override
     public boolean undoCommand() throws Exception
     {
-        for (CarParks CarPark : CarParks.values()) {
-            for (Car obj : Datastore.GetCars(CarPark)) {
-                if (obj.getCARID().equals(car.getCARID()))
-                    throw new Exception("CARID existed");
-            }
-        }
+        for (Car obj : Datastore.GetCars())
+            if (obj.getCARID().equals(car.getCARID()))
+                throw new Exception("CARID existed");
         return Datastore.AddCar(car);
     }
 }
