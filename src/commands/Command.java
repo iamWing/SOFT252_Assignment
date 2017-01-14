@@ -23,16 +23,33 @@ public class Command implements ICommand {
         delegate = _decoratedCommand;
     }
 
+    /**
+     * Accessor to test if this command has been executed
+     * @return boolean True if this command has been executed and not undone,
+     * False otherwise
+     * 
+     */
     @Override
     public boolean isExecuted() {
         return blnExecuted;
     }
 
+    /**
+     * Accessor to test if this command has been undone
+     * @return boolean True if this command has NOT been executed or if it
+     * was undone after execution, False otherwise.
+     * 
+     */
     @Override
     public boolean isUndone() {
         return !blnExecuted;
     }
 
+    /**
+     * Executes the command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean executeCommand() throws Exception {
         boolean done = false;
@@ -43,6 +60,11 @@ public class Command implements ICommand {
         return done;
     }
 
+    /**
+     * Undoes a previously executed command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean undoCommand() throws Exception {
         boolean undone = false;

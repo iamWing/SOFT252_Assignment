@@ -2,6 +2,8 @@ package models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
+import other.Utils;
 
 /**
  * A class to represent an employee.
@@ -16,6 +18,8 @@ public class Staff implements Serializable {
     private Car assignedCar;
 
     private ArrayList<AllocationRecord> allocationHistory;
+    
+    private boolean hasCarAllocated = false;
 
     /**
      * Constructor, Create new employee.
@@ -24,6 +28,7 @@ public class Staff implements Serializable {
      */
     public Staff(String _STAFFID) {
         STAFFID = _STAFFID;
+        allocationHistory = new ArrayList<AllocationRecord>();
     }
 
     /**
@@ -44,9 +49,36 @@ public class Staff implements Serializable {
         address = _address;
         licenseNumber = _licenseNumber;
         licenseType = _licenseType;
+        
+        allocationHistory = new ArrayList<AllocationRecord>();
     }
 
-    // --- Getters & Setters --- //
+    /**
+     * Check if they already have a car.
+     *
+     * @param when Date to check.
+     * @return boolean
+     */
+    public boolean hasCarAllocated(Date when) {
+        if(allocationHistory != null)
+        {
+            for(AllocationRecord rec : allocationHistory)
+            {
+                if(rec.getLongTermAllocation() && rec.getEndDate() != null)
+                {
+                    if(Utils.CompareDates(rec.getStartDate(), when) <= 0 && Utils.CompareDates(rec.getEndDate(), when) >= 0)
+                    {
+                        return true;
+                    }
+                }
+                else if(Utils.CompareDates(rec.getStartDate(), when) == 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Get Employee ID.
@@ -182,14 +214,21 @@ public class Staff implements Serializable {
     /**
      * For use by AllocationRecord object. Do not use.
      *
+     * @throws NullPointerException No allocation records exist.
      */
     public void removeLastAllocationRecord() throws NullPointerException {
-        if (allocationHistory == null) {
-            throw new NullPointerException();
-        }
         allocationHistory.remove(allocationHistory.size() - 1);
     }
 
+    /**
+     * For use by AllocationRecord object. No not use.
+     * 
+     * @param rec AllocationRecord
+     */
+    public void removeAllocationRecord(AllocationRecord rec)
+    {
+        allocationHistory.remove(rec);
+    }
     /**
      * Convert to String.
      * String format is StaffID: Forename Surname
@@ -204,12 +243,12 @@ public class Staff implements Serializable {
      * Get allocation history.
      *
      * @return ArrayList&lt;AllocationRecord&gt;
+     * @throws NullPointerException No allocation records exist.
      */
     public ArrayList<AllocationRecord> getAllocationRecords() throws
             NullPointerException {
-        if (allocationHistory == null) {
+        if (allocationHistory == null)
             throw new NullPointerException();
-        }
         return allocationHistory;
     }
 }

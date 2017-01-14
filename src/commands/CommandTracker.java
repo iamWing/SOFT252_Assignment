@@ -2,6 +2,8 @@ package commands;
 
 import commands.interfaces.ICommand;
 import commands.interfaces.ICommandTracker;
+import commands.interfaces.ICommandWatcher;
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -14,7 +16,33 @@ public class CommandTracker implements ICommandTracker {
     //Declare the 'Done' and 'Un-Done' stacks of ICommand objects
     private static Stack<ICommand> undoStack = new Stack<>();
     private static Stack<ICommand> redoStack = new Stack<>();
+    private static ArrayList<ICommandWatcher> observers = new ArrayList<>();
 
+    /**
+     * Checks if there are any operations to undo.
+     * 
+     * @return boolean
+     */
+    public boolean HasUndoHistory()
+    {
+        return !undoStack.isEmpty();
+    }
+
+    /**
+     * Checks if there are any operations to redo.
+     * 
+     * @return boolean
+     */
+    public boolean HasRedoHistory()
+    {
+        return !redoStack.isEmpty();
+    }
+
+    /**
+     * Executes the command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean executeCommand(ICommand _command) throws Exception {
         boolean blnExecuted = false;
@@ -25,9 +53,15 @@ public class CommandTracker implements ICommandTracker {
                 blnExecuted = true;
             }   //Else not needed false is returned by default
         }
+        CommandTracker.notifyCommandWatchers();
         return blnExecuted;
     }
 
+    /**
+     * Undoes the previously executed command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean undoLastCommand() throws Exception {
         boolean blnUndone = false;
@@ -40,9 +74,15 @@ public class CommandTracker implements ICommandTracker {
             redoStack.push(lastCommand);
             blnUndone = true;
         }   //Else not needed false is returned by default
+        CommandTracker.notifyCommandWatchers();
         return blnUndone;
     }
 
+    /**
+     * Redoes the last undone command.
+     * 
+     * @throws Exception Something went wrong.
+     */
     @Override
     public boolean redoLastCommand() throws Exception {
         boolean blnDone = false;
@@ -55,8 +95,34 @@ public class CommandTracker implements ICommandTracker {
             undoStack.push(lastCommand);
             blnDone = true;
         }   //Else not needed false is returned by default
-
+        CommandTracker.notifyCommandWatchers();
         return blnDone;
     }
-
+    /**
+     * Register ICommandWatcher observer.
+     * 
+     * @param observer ICommandWatcher
+     */
+    public static void addCommandWatcher(ICommandWatcher observer)
+    {
+        CommandTracker.observers.add(observer);
+    }
+    /**
+     * Remove observer.
+     * @param observer ICommandWatcher
+     */
+    public static void removeCommandWatcher(ICommandWatcher observer)
+    {
+        CommandTracker.observers.remove(observer);
+    }
+    /**
+     * Notify observers.
+     */
+    private static void notifyCommandWatchers()
+    {
+        for (ICommandWatcher observer : CommandTracker.observers)
+        {
+            observer.notifyCommandWatcher();
+        }
+    }
 }
