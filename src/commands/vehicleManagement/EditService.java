@@ -23,7 +23,7 @@ public class EditService implements ICommandBehavior {
     
     private Service service;
     
-    private EditService (Service _service, Date _inDate, Date _outDate, 
+    public EditService (Service _service, Date _inDate, Date _outDate, 
             String _desc) {
         service = _service;
         inDate = _inDate;
