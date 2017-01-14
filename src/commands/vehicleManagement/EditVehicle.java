@@ -8,6 +8,7 @@ import models.Insurance;
 
 
 /**
+ * Command to edit vehicle details.
  *
  * @author Wing
  */
@@ -27,6 +28,17 @@ public class EditVehicle implements ICommandBehavior {
     
     private Car vechicle;
     
+    /**
+     * Create EditVehicle command.
+     * @param _vechicleID String
+     * @param _brand String
+     * @param _model String
+     * @param _seats String
+     * @param _desc String
+     * @param _loc CarParks
+     * @param _insurance Insurance
+     * @param _damaged boolean
+     */
     public EditVehicle(String _vechicleID, String _brand, String _model, int _seats, 
             String _desc, CarParks _loc, Insurance _insurance, boolean _damaged) {
         vechicleID = _vechicleID;
@@ -39,6 +51,11 @@ public class EditVehicle implements ICommandBehavior {
         damaged = _damaged;
     }
 
+    /**
+     * Executes the command.
+     * @return success
+     * @throws Exception on error.
+     */
     @Override
     public boolean executeCommand() throws Exception {
         for (Car _vechicle : Datastore.GetCars()) {
@@ -81,6 +98,12 @@ public class EditVehicle implements ICommandBehavior {
         }
     }
 
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     * @throws Exception on error.
+     */
     @Override
     public boolean undoCommand() throws Exception {
         for (Car _vechicle : Datastore.GetCars()) {
