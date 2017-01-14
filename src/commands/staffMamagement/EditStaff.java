@@ -35,6 +35,17 @@ public class EditStaff implements ICommandBehavior {
         licenseType = ((_linceseType != null)
                 && (!_linceseType.isEmpty())) ? _linceseType : "";
     }
+    public EditStaff(Staff _staff)
+    {
+        staffId = _staff.getSTAFFID();
+        fName = ((_staff.getForeName() != null) && (!_staff.getForeName().isEmpty())) ? _staff.getForeName() : "";
+        lName = ((_staff.getLastName() != null) && (!_staff.getLastName().isEmpty())) ? _staff.getLastName() : "";
+        addr = ((_staff.getAddress() != null) && (!_staff.getAddress().isEmpty())) ? _staff.getAddress() : "";
+        licenseNumber = ((_staff.getLicenseNumber() != null)
+                && (!_staff.getLicenseNumber().isEmpty())) ? _staff.getLicenseNumber() : "";
+        licenseType = ((_staff.getLicenseType() != null)
+                && (!_staff.getLicenseType().isEmpty())) ? _staff.getLicenseType() : "";
+    }
 
     /**
      * Executes the command.
