@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
 
 import java.util.ArrayList;
@@ -13,15 +8,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Unit test for Datastore class.
+ * JUnit test for Datastore class.
  *
  * @author NotMike
  */
 public class DatastoreIT {
     private Staff testEmployee = new Staff("EMP", "John", "Smith", "Test Address", "123", "FULL");
     private Car testVehicle = new Car("TEST", "test", "test", 1, CarParks.CarPark01, "Test vehicle");
-    public DatastoreIT() {
-    }
     
     /**
      * Test of TestDatastore method, of class Datastore.
