@@ -69,36 +69,30 @@ public class AddEditRemoveStaffIT {
     /**
      * JUnit test for EditStaff command.
      */
-    public void testEdit() {
+    public void testEdit() throws Exception {
         System.out.println("Edit");
         CommandTracker undoHistory = new CommandTracker();
         Datastore.AddStaff(staff);
-        try
-        {
-            Command editCommand = new Command(new EditStaff(id, "TEST", "TEST", "TEST", "TEST", "TEST"));
-            undoHistory.executeCommand(editCommand);
-            assertEquals("TEST", staff.getAddress());
-            assertEquals("TEST", staff.getForeName());
-            assertEquals("TEST", staff.getLastName());
-            assertEquals("TEST", staff.getLicenseNumber());
-            assertEquals("TEST", staff.getLicenseType());
-            
-            undoHistory.undoLastCommand();
-            assertEquals(addr, staff.getAddress());
-            assertEquals(fName, staff.getForeName());
-            assertEquals(lName, staff.getLastName());
-            assertEquals(licenseNum, staff.getLicenseNumber());
-            assertEquals(licenseType, staff.getLicenseType());
+        Command editCommand = new Command(new EditStaff(id, "TEST", "TEST", "TEST", "TEST", "TEST"));
+        undoHistory.executeCommand(editCommand);
+        assertEquals("TEST", staff.getAddress());
+        assertEquals("TEST", staff.getForeName());
+        assertEquals("TEST", staff.getLastName());
+        assertEquals("TEST", staff.getLicenseNumber());
+        assertEquals("TEST", staff.getLicenseType());
 
-            undoHistory.redoLastCommand();
-            assertEquals("TEST", staff.getAddress());
-            assertEquals("TEST", staff.getForeName());
-            assertEquals("TEST", staff.getLastName());
-            assertEquals("TEST", staff.getLicenseNumber());
-            assertEquals("TEST", staff.getLicenseType());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            fail("Exception caught");
-        }
+        undoHistory.undoLastCommand();
+        assertEquals(addr, staff.getAddress());
+        assertEquals(fName, staff.getForeName());
+        assertEquals(lName, staff.getLastName());
+        assertEquals(licenseNum, staff.getLicenseNumber());
+        assertEquals(licenseType, staff.getLicenseType());
+
+        undoHistory.redoLastCommand();
+        assertEquals("TEST", staff.getAddress());
+        assertEquals("TEST", staff.getForeName());
+        assertEquals("TEST", staff.getLastName());
+        assertEquals("TEST", staff.getLicenseNumber());
+        assertEquals("TEST", staff.getLicenseType());
     }
 }
