@@ -1,9 +1,10 @@
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
+import java.util.Date;
 import models.AllocationRecord;
 import models.Car;
-import models.Insurance;
+import models.Staff;
 
 /**
  * Command to remove an AllocationRecord from Car and Staff.
@@ -12,16 +13,22 @@ import models.Insurance;
  */
 public class RemoveAllocationRecord implements ICommandBehavior{
     private Car car;
-    private AllocationRecord record;
-    
+    private Staff staff;
+    private Date from;
+    private Date to;
+    AllocationRecord record;
+            
     /**
      * Create RemoveAllocationRecord command object.
      * @param _record AllocationRecord
      */
-    public RemoveAllocationRecord(AllocationRecord _record)
+    public RemoveAllocationRecord(AllocationRecord targetRecord)
     {
-        record = _record;
-        
+        record = targetRecord;
+        car = record.getCar();
+        staff = record.getStaff();
+        from = record.getStartDate();
+        to = record.getStartDate();
     }
     
     /**
@@ -42,9 +49,7 @@ public class RemoveAllocationRecord implements ICommandBehavior{
     @Override
     public boolean undoCommand()
     {
-        car.addAllocationRecord(record);
-        record.getStaff().addAllocationRecord(record);
-        
+        record = new AllocationRecord(car, staff, from, to);
         return true;
     }
 }
