@@ -56,22 +56,14 @@ public class AddInsuranceIT {
         boolean result;
 
         try {
+            // execute
             result = addInsurance.executeCommand();
             assertTrue(result);
             if (result) 
                 assertEquals(insuranceNum, 
                         vehicle.getInsurance().getInsuranceNumber());
-        } catch(Exception ex) {
-            System.out.println(ex.getMessage());
-            fail("Exception caught");
-        }
-    }
 
-    @Test
-    public void undo() {
-        boolean result;
-
-        try {
+            // undo
             result = addInsurance.undoCommand();
             assertTrue(result);
             if (result) 
