@@ -68,6 +68,7 @@ public class AddAllocationRecord implements ICommandBehavior{
             record = new AllocationRecord(car,staff,startDate);
         return true;
     }
+    
     /**
      * Undo the command.
      * 
@@ -76,7 +77,21 @@ public class AddAllocationRecord implements ICommandBehavior{
     @Override
     public boolean undoCommand()
     {
-        record.Delete();
+//        record.Delete();
+        for (AllocationRecord record : car.getAllocationRecords()) {
+            // only staff & startDate are enough to find out the object we need
+            // as the startDate cannot be repeated
+            if ((record.getStaff() == staff) && 
+                    (record.getStartDate() == startDate)) {
+                car.removeAllocationRecord(record);
+            }
+        }
+
+        for (AllocationRecord record : staff.getAllocationRecords()) {
+            // only car & startDate are enough for the same reason
+            if ((record.getCar() == car) && (record.getStartDate() == startDate))
+                staff.removeAllocationRecord(record);
+        }
         return true;
     }
 }
