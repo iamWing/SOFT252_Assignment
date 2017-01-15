@@ -35,6 +35,10 @@ public class EditStaff implements ICommandBehavior {
         licenseType = ((_linceseType != null)
                 && (!_linceseType.isEmpty())) ? _linceseType : "";
     }
+    /**
+     * Create EditStaff command object.
+     * @param _staff Staff
+     */
     public EditStaff(Staff _staff)
     {
         staffId = _staff.getSTAFFID();

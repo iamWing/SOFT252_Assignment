@@ -6,5 +6,16 @@ package models;
  * @author Wing
  */
 public enum CarParks {
-    CarPark01, CarPark02, CarPark03;
+    /**
+     * First Location
+     */
+    CarPark01,
+    /**
+     * Second Location
+     */
+    CarPark02,
+    /**
+     * And so on.
+     */
+    CarPark03;
 }
