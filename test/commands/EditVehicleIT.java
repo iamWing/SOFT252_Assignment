@@ -58,7 +58,7 @@ public class EditVehicleIT {
 
         insurance = new Insurance(company, insuranceNum, startDate, endDate);
 
-        editVehicleBehavior = new EditVehicle(vehicleId, brand, model, seats, 
+        editVehicleBehavior = new EditVehicle(vehicleId, brand, model, seats,
                 desc + " (Edited)", loc, insurance, false);
         editVehicle = new Command(editVehicleBehavior);
     }
@@ -70,39 +70,30 @@ public class EditVehicleIT {
         boolean result;
 
         try {
+            // execute
             result = editVehicle.executeCommand();
             assertTrue(result);
             if (result) {
                 for (Car v : Datastore.GetCars()) {
-                    if (v.getCARID().equals(vehicleId))
+                    if (v.getCARID().equals(vehicleId)) {
                         assertEquals(desc + " (Edited)", v.getDescription());
+                    }
                 }
             }
-        } catch(Exception ex) {
-            System.out.println(ex.getMessage());
-            fail("Exception caught");
-        }
-    }
 
-    @Test
-    public void undo() {
-        System.out.println("Undo");
-
-        boolean result;
-
-        try {
+            // undo
             result = editVehicle.undoCommand();
             assertTrue(result);
             if (result) {
-                for (Car v: Datastore.GetCars()) {
-                    if (v.getCARID().equals(vehicleId))
+                for (Car v : Datastore.GetCars()) {
+                    if (v.getCARID().equals(vehicleId)) {
                         assertEquals(desc, v.getDescription());
+                    }
                 }
             }
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
             fail("Exception caught");
         }
     }
-
 }
