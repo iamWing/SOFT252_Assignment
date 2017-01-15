@@ -10,6 +10,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
     other.UtilsIT.class,
     data.DatastoreIT.class,
+    models.AllocationRecordIT.class,
+    models.CarIT.class,
     models.DamageRecordIT.class,
     models.InsuranceIT.class,
     models.ServiceIT.class,

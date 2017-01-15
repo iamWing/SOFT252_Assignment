@@ -21,7 +21,7 @@ public class DamageRecordIT {
     
     @Before
     public void setUp() {
-        System.out.println("Testing DamageRecord class.");
+        System.out.print("Testing DamageRecord.");
     }
 
     /**

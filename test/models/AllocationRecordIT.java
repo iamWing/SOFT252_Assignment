@@ -19,7 +19,7 @@ public class AllocationRecordIT {
     
     @Before
     public void setUp() {
-        System.out.println("Testing AllocationRecord class.");
+        System.out.print("Testing AllocationRecord.");
         vehicle = new Car("TEST");
         employee = new Staff("TEST");
     }
