@@ -16,7 +16,7 @@ public class ServiceIT {
     
     @Before
     public void setUp() {
-        System.out.println("Testing Service class.");
+        System.out.print("Testing Service.");
     }
 
     /**

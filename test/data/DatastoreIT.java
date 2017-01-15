@@ -6,6 +6,7 @@ import models.CarParks;
 import models.Staff;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  * JUnit test for Datastore class.
@@ -16,6 +17,10 @@ public class DatastoreIT {
     private Staff testEmployee = new Staff("EMP", "John", "Smith", "Test Address", "123", "FULL");
     private Car testVehicle = new Car("TEST", "test", "test", 1, CarParks.CarPark01, "Test vehicle");
     
+    @Before
+    public void setUp() {
+        System.out.print("Testing Datastore.");
+    }
     /**
      * Test of TestDatastore method, of class Datastore.
      */

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package commands.vehicleManagement;
 
 import commands.interfaces.ICommandBehavior;
@@ -23,6 +18,13 @@ public class EditService implements ICommandBehavior {
     
     private Service service;
     
+    /**
+     * Create edit command.
+     * @param _service Service
+     * @param _inDate Date
+     * @param _outDate Date
+     * @param _desc Date
+     */
     public EditService (Service _service, Date _inDate, Date _outDate, 
             String _desc) {
         service = _service;
@@ -31,6 +33,11 @@ public class EditService implements ICommandBehavior {
         desc = ((_desc != null) && (!_desc.isEmpty())) ? _desc : "";
     }
 
+    /**
+     * Executes the command.
+     * @return success
+     * @throws Exception on error.
+     */
     @Override
     public boolean executeCommand() throws Exception {
         _inDate = service.getInDate();
@@ -47,6 +54,12 @@ public class EditService implements ICommandBehavior {
         return true;
     }
 
+    /**
+     * Undo the command.
+     * 
+     * @return success
+     * @throws Exception on error.
+     */
     @Override
     public boolean undoCommand() throws Exception {
         if (service.getInDate() != _inDate)

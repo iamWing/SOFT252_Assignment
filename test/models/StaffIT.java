@@ -22,7 +22,7 @@ public class StaffIT {
 
     @Before
     public void setUp() throws Exception {
-        System.out.println("Testing Staff class.");
+        System.out.print("Testing Staff.");
         Datastore.TestDatastore();
         Datastore.AddStaff(employee);
         Datastore.AddCar(testCar);
