@@ -10,8 +10,8 @@ import java.util.Date;
 import models.Service;
 
 /**
- *
- * @author rmarcu
+ * Command for edit service record
+ * @author Wing
  */
 public class EditService implements ICommandBehavior {
     
