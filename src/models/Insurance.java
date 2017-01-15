@@ -14,8 +14,6 @@ public class Insurance implements Serializable {
     private String insuranceNumber;
     private Date startDate, endDate;
 
-    private Car car;
-
     /**
      *
      * @param _company String Name of insurance company.
@@ -104,12 +102,4 @@ public class Insurance implements Serializable {
         this.endDate = endDate;
     }
 
-    /**
-     * Get Car that policy applies to.
-     *
-     * @return Car
-     */
-    public Car getCar() {
-        return car;
-    }
 }
