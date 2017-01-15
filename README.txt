@@ -19,6 +19,6 @@ HTML documentation has been auto-generated from the library contents.
 Written report on the development of the application. Includes UML diagrams of various elements in appendix A.
 
 #Demonstration
-The powerpoint presentation has embedded audio (and a short video). The audio has been summarised in the notes attached to each slide.
-The recommended way to view this demonstration is by playing back the presentation as if you were giving a lecture.
-
+The powerpoint presentation has embedded audio (and a short video).
+The recommended way to view this demonstration is by playing the full slideshow from the beginning. Audio will start automatically.
+If you prefer to read, the audio commentary has been summarised in the notes for each slide.
