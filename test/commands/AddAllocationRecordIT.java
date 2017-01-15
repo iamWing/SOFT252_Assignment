@@ -3,6 +3,7 @@ package commands;
 import commands.interfaces.ICommandBehavior;
 import commands.vehicleManagement.AddAllocationRecord;
 import java.util.Date;
+import models.AllocationRecord;
 import models.Car;
 import models.CarParks;
 import models.Staff;
@@ -49,29 +50,34 @@ public class AddAllocationRecordIT {
     }
 
     @Test
-    public void execute() {
+    public void executeAndUndo() {
         System.out.println("Execute");
 
         boolean result;
 
         try {
+            // execute add allocation record
             result = addAllocationRecord.executeCommand();
             assertTrue(result);
-        } catch(Exception ex) {
-            System.out.println(ex.getMessage());
-            fail("Exception caught");
-        }
-    }
+            if (result) {
+                AllocationRecord record = vehicle.getAllocationRecords().get(0);
+                assertEquals(record, staff.getAllocationRecords().get(0));
+                assertEquals(vehicle, record.getCar());
+                assertEquals(staff, record.getStaff());
+                assertEquals(startDate, record.getStartDate());
+            }
 
-    @Test
-    public void undo() {
-        System.out.println("Undo");
-
-        boolean result;
-
-        try {
             result = addAllocationRecord.undoCommand();
             assertTrue(result);
+            if (result) { 
+                boolean searched = false;
+                for (AllocationRecord record : vehicle.getAllocationRecords()) {
+                    if ((record.getCar() == vehicle) && (record.getStartDate() 
+                            == startDate)) 
+                        searched = true;
+                }
+                assertFalse(searched);
+            }
         } catch(Exception ex) {
             System.out.println(ex.getMessage());
             fail("Exception caught");
