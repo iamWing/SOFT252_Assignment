@@ -9,6 +9,13 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     other.UtilsIT.class,
+    commands.AddEditRemoveServiceIT.class,
+    commands.AddEditRemoveStaffIT.class,
+    commands.AddRemoveAllocationRecordIT.class,
+    commands.AddRemoveDamageRecordIT.class,
+    commands.AddRemoveVehicleIT.class,
+    commands.AddInsuranceIT.class,
+    commands.EditVehicleIT.class,
     data.DatastoreIT.class,
     models.AllocationRecordIT.class,
     models.CarIT.class,

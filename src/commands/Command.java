@@ -7,6 +7,7 @@ import commands.interfaces.ICommandBehavior;
 /**
  * Concrete implementation of the ICommand interface, wraps an ICommandBehaviour
  * and ads functionality to track its status as executed or undone.
+ * Note: No JUnit test, because there are plenty of other tests using this functionality.
  * @author rtucker
  */
 public class Command implements ICommand {

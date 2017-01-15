@@ -63,6 +63,9 @@ public class EditVehicleIT {
         editVehicle = new Command(editVehicleBehavior);
     }
 
+    /**
+     * JUnit test for EditVehicle command.
+     */
     @Test
     public void execute() {
         System.out.println("Execute");

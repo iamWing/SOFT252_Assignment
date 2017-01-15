@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 /**
- * This class provides execution and tracking services for ICommand objects
+ * This class provides execution and tracking services for ICommand objects.
+ * Note: No JUnit test, because there are plenty of other tests using this functionality.
  *
  * @author rtucker
  */
