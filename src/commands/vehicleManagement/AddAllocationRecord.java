@@ -31,7 +31,7 @@ public class AddAllocationRecord implements ICommandBehavior{
      */
     public AddAllocationRecord(Car _car, Staff _staff, Date _startDate, Date _endDate)
     {
-        longTermAllocation = true;
+        longTermAllocation = false;
         
         car = _car;
         staff = _staff;
@@ -48,7 +48,7 @@ public class AddAllocationRecord implements ICommandBehavior{
      */
     public AddAllocationRecord(Car _car, Staff _staff, Date _startDate)
     {
-        longTermAllocation = false;
+        longTermAllocation = true;
         
         car = _car;
         staff = _staff;

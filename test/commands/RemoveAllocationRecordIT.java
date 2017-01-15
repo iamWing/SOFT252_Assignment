@@ -13,6 +13,7 @@ import models.AllocationRecord;
 import models.Car;
 import models.CarParks;
 import models.Staff;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -91,7 +92,14 @@ public class RemoveAllocationRecordIT {
             result = removeAllocationRecord.undoCommand();
             assertTrue(result);
             if (result) {
-                assertTrue(vehicle.getAllocationRecords().contains(record));
+                assertEquals(record.getCar(), 
+                        vehicle.getAllocationRecords().get(0).getCar());
+                assertEquals(record.getStaff(), 
+                        vehicle.getAllocationRecords().get(0).getStaff());
+                assertEquals(record.getStartDate(), 
+                        vehicle.getAllocationRecords().get(0).getStartDate());
+                assertEquals(record.getLongTermAllocation(),
+                        vehicle.getAllocationRecords().get(0).getLongTermAllocation());
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
