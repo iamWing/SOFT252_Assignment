@@ -10,6 +10,10 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
     other.UtilsIT.class,
     data.DatastoreIT.class,
+    models.DamageRecordIT.class,
+    models.InsuranceIT.class,
+    models.ServiceIT.class,
+    models.StaffIT.class,
 })
 public class JUnitTests {
     
