@@ -25,8 +25,9 @@ public class RemoveVehicle implements ICommandBehavior{
                 car = _car;
             }
 
-            throw new Exception("CARID does not exist");
         }
+        if (car == null) 
+            throw new Exception("CARID does not exist");
     }
 
     /**
