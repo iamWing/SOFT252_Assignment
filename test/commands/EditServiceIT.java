@@ -45,7 +45,7 @@ public class EditServiceIT {
         service = new Service(inDate, outDate, desc);
 
         editServiceBehavior = new EditService(service, inDate, outDate,
-                desc + " (Edited");
+                desc + " (Edited)");
         editService = new Command(editServiceBehavior);
     }
 
