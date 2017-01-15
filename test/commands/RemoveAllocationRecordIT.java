@@ -63,7 +63,6 @@ public class RemoveAllocationRecordIT {
 
         try {
             addAllocationRecord.executeCommand();
-            System.out.println(vehicle.getAllocationRecords().size());
             record = vehicle.getAllocationRecords().get(0);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -92,7 +91,7 @@ public class RemoveAllocationRecordIT {
             result = removeAllocationRecord.undoCommand();
             assertTrue(result);
             if (result) {
-//                assertTrue(vehicle.getAllocationRecords().contains(record));
+                assertTrue(vehicle.getAllocationRecords().contains(record));
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
