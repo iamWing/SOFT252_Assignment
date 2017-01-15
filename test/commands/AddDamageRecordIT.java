@@ -5,7 +5,10 @@ import commands.vehicleManagement.AddDamageRecord;
 import java.util.Date;
 import models.Car;
 import models.CarParks;
+import models.DamageRecord;
 import models.Staff;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import org.junit.Before;
@@ -49,25 +52,33 @@ public class AddDamageRecordIT {
    }
 
    @Test
-   public void execute() {
+   public void executeAndUndo() {
        boolean result;
 
        try {
+           // execute
            result = addDamageRecord.executeCommand();
            assertTrue(result);
-       } catch (Exception ex) {
-           System.out.println(ex.getMessage());
-           fail("Exception caught");
-       }
-   }
+           if (result) {
+               DamageRecord record = vehicle.getDamageRecords().get(0);
+               assertEquals(damageDate, record.getDamageDate());
+               assertEquals(staff, record.getDamagedBy());
+               assertEquals(recordDesc, record.getDescription());
+           }
 
-   @Test
-   public void undo() {
-       boolean result;
-
-       try {
+           // undo
            result = addDamageRecord.undoCommand();
            assertTrue(result);
+           if (result) {
+               boolean searched = false;
+               for (DamageRecord rec : vehicle.getDamageRecords()) {
+                   if ((rec.getDamageDate() == damageDate) && 
+                           (rec.getDamagedBy() == staff) && 
+                           (rec.getDescription().equals(recordDesc)))
+                       searched = true;
+               }
+               assertFalse(searched);
+           }
        } catch (Exception ex) {
            System.out.println(ex.getMessage());
            fail("Exception caught");
