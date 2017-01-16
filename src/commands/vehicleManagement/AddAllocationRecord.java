@@ -24,10 +24,10 @@ public class AddAllocationRecord implements ICommandBehavior{
     /**
      * Create AddAllocationRecord command object.
      * 
-     * @param _car
-     * @param _staff
-     * @param _startDate
-     * @param _endDate 
+     * @param _car Car
+     * @param _staff Staff
+     * @param _startDate Date
+     * @param _endDate Date
      */
     public AddAllocationRecord(Car _car, Staff _staff, Date _startDate, Date _endDate)
     {

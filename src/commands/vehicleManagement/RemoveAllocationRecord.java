@@ -20,7 +20,7 @@ public class RemoveAllocationRecord implements ICommandBehavior{
             
     /**
      * Create RemoveAllocationRecord command object.
-     * @param _record AllocationRecord
+     * @param targetRecord AllocationRecord
      */
     public RemoveAllocationRecord(AllocationRecord targetRecord)
     {

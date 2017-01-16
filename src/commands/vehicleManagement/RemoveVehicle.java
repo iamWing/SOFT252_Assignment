@@ -17,7 +17,7 @@ public class RemoveVehicle implements ICommandBehavior{
      * Create RemoveVehicle Command
      * 
      * @param _carId String
-     * @throws Exception 
+     * @throws Exception if not found
      */
     public RemoveVehicle(String _carId) throws Exception {
         for (Car _car : Datastore.GetCars()) {
