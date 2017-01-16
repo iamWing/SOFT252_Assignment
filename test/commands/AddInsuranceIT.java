@@ -51,26 +51,23 @@ public class AddInsuranceIT {
         addInsurance = new Command(addInsuranceBehavior);
     }
 
+    /**
+     * JUnit Test to check command executes properly.
+     */
     @Test
-    public void excute() {
+    public void excute() throws Exception {
         boolean result;
 
-        try {
-            // execute
-            result = addInsurance.executeCommand();
-            assertTrue(result);
-            if (result) 
-                assertEquals(insuranceNum, 
-                        vehicle.getInsurance().getInsuranceNumber());
+        result = addInsurance.executeCommand();
+        assertTrue(result);
+        if (result) 
+            assertEquals(insuranceNum, 
+                    vehicle.getInsurance().getInsuranceNumber());
 
-            // undo
-            result = addInsurance.undoCommand();
-            assertTrue(result);
-            if (result) 
-                assertEquals(null, vehicle.getInsurance());
-        } catch(Exception ex) {
-            System.out.println(ex.getMessage());
-            fail("Exception caught");
-        }
+        // undo
+        result = addInsurance.undoCommand();
+        assertTrue(result);
+        if (result) 
+            assertEquals(null, vehicle.getInsurance());
     }
 }

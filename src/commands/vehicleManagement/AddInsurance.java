@@ -44,7 +44,7 @@ public class AddInsurance implements ICommandBehavior {
     @Override
     public boolean executeCommand() throws Exception {
         for (Car _currVehicle : Datastore.GetCars()) {
-            if (_currVehicle.getInsurance().getInsuranceNumber()
+            if (_currVehicle.getInsurance() != null && _currVehicle.getInsurance().getInsuranceNumber()
                     .equals(insuranceNumber)) {
                 throw new Exception(
                         "Insurance number existed in other vehicle already");
