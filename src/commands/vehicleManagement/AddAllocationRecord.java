@@ -84,13 +84,16 @@ public class AddAllocationRecord implements ICommandBehavior{
             if ((record.getStaff() == staff) && 
                     (record.getStartDate() == startDate)) {
                 car.removeAllocationRecord(record);
+                break;
             }
         }
 
         for (AllocationRecord record : staff.getAllocationRecords()) {
             // only car & startDate are enough for the same reason
-            if ((record.getCar() == car) && (record.getStartDate() == startDate))
+            if ((record.getCar() == car) && (record.getStartDate() == startDate)) {
                 staff.removeAllocationRecord(record);
+                break;
+            }
         }
         return true;
     }
