@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * JUnit test of EditStaff command
+ * JUnit test of AddStaff EditStaff and RemoveStaff commands
  *
  * @author Wing
  */
